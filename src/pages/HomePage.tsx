@@ -11,7 +11,7 @@ const ProjectsPage = () => {
   return (
     <UserProvider>
       <ProjectsProvider>
-        <div className="bg-image">
+        <div>
           <Sidebar />
           <main className="pt-16 lg:pl-16">
             <Switch>
