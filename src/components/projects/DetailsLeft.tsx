@@ -43,7 +43,8 @@ const DetailsLeft: FunctionComponent<{
     setModified(false);
   };
 
-  const updateProject = () => {
+  const updateProject = (e: any) => {
+    e.preventDefault();
     setMessage("");
     onUpdate({
       id: project.id,
@@ -67,11 +68,14 @@ const DetailsLeft: FunctionComponent<{
   };
 
   return (
-    <section className="transparent rounded-lg py-4">
+    <form onSubmit={updateProject} className="transparent rounded-lg py-4">
       <article className="project-details-field">
         <div className="project-details-label">name</div>
         <input
           type="text"
+          minLength={6}
+          maxLength={60}
+          required={true}
           placeholder="N/A"
           value={name}
           onChange={(e) => onChange(setName, e.target.value)}
@@ -91,7 +95,7 @@ const DetailsLeft: FunctionComponent<{
           </a>
         </div>
         <input
-          type="text"
+          type="url"
           placeholder="N/A"
           value={repository}
           onChange={(e) => onChange(setRepository, e.target.value)}
@@ -149,7 +153,7 @@ const DetailsLeft: FunctionComponent<{
 
       <article className="center-with-flex flex-col md:flex-row p-4">
         <button
-          onClick={(_) => updateProject()}
+          type="submit"
           className="btn btn-blue relative w-5/6 md:w-1/4"
         >
           {modified && (
@@ -158,6 +162,7 @@ const DetailsLeft: FunctionComponent<{
           Update
         </button>
         <button
+          type="reset"
           onClick={onCancel}
           className="btn btn-red w-5/6 md:w-1/4 m-2 md:mx-auto"
         >
@@ -187,7 +192,7 @@ const DetailsLeft: FunctionComponent<{
         onEnter={(value) => setTechnologies((old) => old.concat(value))}
         onClose={() => setTechModal(false)}
       />
-    </section>
+    </form>
   );
 };
 

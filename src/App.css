@@ -39,6 +39,10 @@
     background-position: center;
     background-size: cover;
   }
+
+  input:invalid {
+    background: red;
+  }
   .App,
   #root {
     height: 100%;
