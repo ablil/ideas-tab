@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import Project from "../../models/Project";
 import Loading from "../commons/loading";
 import DetailsLeft from "./DetailsLeft";
-import InputModal from "../commons/InputModal";
 import { ProjectsContext } from "../../providers/ProjectsProvider";
 import DetailsRight from "./DetailsRight";
 
@@ -13,9 +12,6 @@ const Details = () => {
   const { loading, findProject, updateProject } = useContext(ProjectsContext);
   const [project] = useState(findProject(id));
 
-  const [modalTitle] = useState("");
-  const [modalVisibility, setModalVisibility] = useState(false);
-
   const onUpdateNotes = (notes: string[]) => {
     return updateProject({ ...project, notes } as Project);
   };
@@ -24,18 +20,8 @@ const Details = () => {
 
   return project ? (
     <div className="fade-in flex flex-col md:flex-row mx-4 mt-4">
-      {/* left side */}
       <DetailsLeft project={project} onUpdate={updateProject} />
-
-      {/* right side */}
       <DetailsRight project={project} onUpdate={onUpdateNotes} />
-
-      <InputModal
-        isShown={modalVisibility}
-        onClose={() => setModalVisibility(false)}
-        onEnter={(value) => console.log(value)}
-        title={modalTitle}
-      />
     </div>
   ) : (
     // TODO: implement ui for project not found

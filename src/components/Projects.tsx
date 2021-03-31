@@ -55,10 +55,12 @@ const Projects = () => {
       <Plus onClick={(_) => setShowmodal(true)} />
       {/* create new project modal */}
       <InputModal
-        title="Type project name"
-        isShown={showmodal}
-        onEnter={onCreate}
-        onClose={() => setShowmodal(false)}
+        title="Project idea"
+        subtitle="Add your new project idea"
+        type="text"
+        isVisible={showmodal}
+        onOk={onCreate}
+        onCancel={() => setShowmodal(false)}
       />
     </div>
   );

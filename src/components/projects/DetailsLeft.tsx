@@ -182,16 +182,20 @@ const DetailsLeft: FunctionComponent<{
 
       {/* modals */}
       <InputModal
-        title="Add new link"
-        isShown={linkModal}
-        onEnter={(value) => setLinks((old) => old.concat(value))}
-        onClose={() => setLinkModal(false)}
+        title="Related links"
+        subtitle="Some useful links you may check"
+        type="url"
+        isVisible={linkModal}
+        onOk={(value) => setLinks((old) => old.concat(value))}
+        onCancel={() => setLinkModal(false)}
       />
       <InputModal
-        title="Add new technology"
-        isShown={techModal}
-        onEnter={(value) => setTechnologies((old) => old.concat(value))}
-        onClose={() => setTechModal(false)}
+        title="Technologies"
+        subtitle="Comma separated values"
+        type="text"
+        isVisible={techModal}
+        onOk={(value) => setTechnologies((old) => old.concat(value.split(",")))}
+        onCancel={() => setTechModal(false)}
       />
     </form>
   );
