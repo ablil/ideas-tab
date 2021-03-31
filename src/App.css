@@ -118,4 +118,9 @@
   #project-details-left {
     height: max-content;
   }
+  .plus {
+    position: sticky;
+    left: 95%;
+    bottom: 1.5rem;
+  }
 }
