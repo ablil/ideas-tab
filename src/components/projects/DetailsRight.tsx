@@ -37,7 +37,7 @@ const DetailsRight: FunctionComponent<{
   };
 
   return (
-    <section className="transparent p-4 rounded-lg">
+    <section className="transparent p-4 rounded-lg mt-4 md:m-4 md:w-3/5">
       <article className="capitalize text-2xl text-gray-50 opacity-70">
         Keep notes
       </article>

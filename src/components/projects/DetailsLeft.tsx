@@ -68,7 +68,11 @@ const DetailsLeft: FunctionComponent<{
   };
 
   return (
-    <form onSubmit={updateProject} className="transparent rounded-lg py-4">
+    <form
+      id="project-details-left"
+      onSubmit={updateProject}
+      className="transparent rounded-lg py-4 md:m-4 md:w-2/5 md:self-start md:sticky md:top-0"
+    >
       <article className="project-details-field">
         <div className="project-details-label">name</div>
         <input
@@ -151,11 +155,8 @@ const DetailsLeft: FunctionComponent<{
         </ul>
       </article>
 
-      <article className="center-with-flex flex-col md:flex-row p-4">
-        <button
-          type="submit"
-          className="btn btn-blue relative w-5/6 md:w-1/4"
-        >
+      <article className="center-with-flex flex-col flex-wrap md:flex-row p-4">
+        <button type="submit" className="btn btn-blue relative w-5/6 md:w-1/4">
           {modified && (
             <span className="animate-ping absolute inline-flex h-3 w-3 -top-1 -left-1 rounded-full bg-purple-400 opacity-75"></span>
           )}

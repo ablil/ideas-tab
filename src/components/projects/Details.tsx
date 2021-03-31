@@ -23,7 +23,7 @@ const Details = () => {
   if (loading) return <Loading />;
 
   return project ? (
-    <div className="fade-in grid grid-rows-2 grid-cols-1 gap-y-8 lg:grid-cols-2 lg:grid-rows-1 lg:gap-x-36 mx-4 mt-4">
+    <div className="fade-in flex flex-col md:flex-row mx-4 mt-4">
       {/* left side */}
       <DetailsLeft project={project} onUpdate={updateProject} />
 
