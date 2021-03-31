@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "sidprojects-dev"
+    "default": "sidprojects-dev",
+    "staging": "sidprojects-dev",
+    "production": "ideas-tab"
   }
 }
