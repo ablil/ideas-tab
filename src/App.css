@@ -125,4 +125,23 @@
     left: 95%;
     bottom: 1.5rem;
   }
+
+  .loader{
+    margin: 0 0 2em;
+    height: 100px;
+    width: 20%;
+    text-align: center;
+    padding: 1em;
+    margin: 0 auto 1em;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  /*
+    Set the color of the icon
+  */
+  svg#loading path,
+  svg#loading rect{
+    fill: rgba(96, 165, 250, var(--tw-bg-opacity));
+  }
 }
