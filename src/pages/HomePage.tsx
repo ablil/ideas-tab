@@ -11,21 +11,15 @@ const ProjectsPage = () => {
   return (
     <UserProvider>
       <ProjectsProvider>
-        <div>
-          <Sidebar />
-          <main className="pt-16 lg:pl-16">
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={(_) => <Redirect to="/projects" />}
-              />
-              <Route exact path="/profile" component={Profile} />
-              <Route path="/projects" component={Projects} />
-              <Route path="*" component={NotFound} />
-            </Switch>
-          </main>
-        </div>
+        <Sidebar />
+        <main className="pt-16 lg:pl-16">
+          <Switch>
+            <Route exact path="/" render={(_) => <Redirect to="/projects" />} />
+            <Route exact path="/profile" component={Profile} />
+            <Route path="/projects" component={Projects} />
+            <Route path="*" component={NotFound} />
+          </Switch>
+        </main>
       </ProjectsProvider>
     </UserProvider>
   );

@@ -129,7 +129,7 @@ const DetailsLeft: FunctionComponent<{
               onClick={(_) =>
                 setTechnologies((old) => old.filter((t) => t !== tech))
               }
-              className="badge cursor-pointer"
+              className="badge cursor-pointer hover:bg-red-400"
             >
               {tech}
             </span>

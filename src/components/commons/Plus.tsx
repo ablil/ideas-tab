@@ -6,7 +6,7 @@ const Plus: FunctionComponent<{
 }> = ({ onClick }) => {
   return (
     <div
-      className="plus w-12 h-12 bg-gray-50 rounded-full"
+      className="plus w-12 h-12 bg-gray-50 rounded-full cursor-pointer"
       title="Add"
       onClick={onClick}
     >

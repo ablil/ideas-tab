@@ -98,7 +98,7 @@ const Profile = () => {
     <LoadingPage />
   ) : (
     <section className="fade-in text-center text-gray-50 md:min-w-max">
-      <article className="text-xl opacity-50">
+      <article className="text-xl text-bold">
         You are now connected as <span className="text-2xl ">{user.email}</span>
       </article>
       {msg && (
@@ -108,7 +108,7 @@ const Profile = () => {
           {msg}
         </article>
       )}
-      <section className="w-full lg:w-2/4 mx-auto">
+      <section className="w-full lg:w-2/4 mx-auto transparent">
         <article className="py-4 px-12">
           <label className="block small-text text-gray-200" htmlFor="password">
             Current Password

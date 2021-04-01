@@ -37,7 +37,7 @@ const Grid: FunctionComponent<{
         <div className="md:h-full w-full md:w-4/5">
           <input
             type="text"
-            className="h-full w-full text-gray-50 bg-transparent  outline-none p-2 md:pl-4  placeholder-opacity-25 placeholder-gray-500"
+            className="h-full w-full text-gray-50 bg-transparent  outline-none p-2 md:pl-4  placeholder-gray-400"
             placeholder="Filter by name or technology ..."
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}

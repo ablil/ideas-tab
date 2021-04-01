@@ -11,7 +11,7 @@ const AuthPage = () => {
   return (
     <Switch location={location}>
       <Route exact path="/login">
-        <section className="bg-image fade-in flex flex-col lg:flex-row">
+        <section className="bg-image h-full fade-in flex flex-col lg:flex-row">
           <article className="lg:w-2/4">
             <div className="text-white text-center w-3/4 mx-auto py-12">
               <h1 className="text-5xl">Keep tracks of your ideas</h1>
