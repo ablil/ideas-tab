@@ -12,16 +12,28 @@ const Details = () => {
   const { loading, findProject, updateProject } = useContext(ProjectsContext);
   const [project] = useState(findProject(id));
 
+  // TODO: work with project as a parameter instead of notes
   const onUpdateNotes = (notes: string[]) => {
     return updateProject({ ...project, notes } as Project);
+  };
+
+  const onFilterNotes = (project: Project, keyword: string) => {
+    return keyword.length
+      ? {
+          ...project,
+          notes: project.notes.filter((note) => note.includes(keyword)),
+        }
+      : project;
   };
 
   if (loading) return <Loading />;
 
   return project ? (
-    <div className="fade-in flex flex-col md:flex-row mx-4 mt-4">
-      <DetailsLeft project={project} onUpdate={updateProject} />
-      <DetailsRight project={project} onUpdate={onUpdateNotes} />
+    <div className="fade-in mx-4 mt-4">
+      <div className="w-full h-full flex flex-col md:flex-row">
+        <DetailsLeft project={project} onUpdate={updateProject} />
+        <DetailsRight project={project} onUpdate={onUpdateNotes} />
+      </div>
     </div>
   ) : (
     // TODO: implement ui for project not found

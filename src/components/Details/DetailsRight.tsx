@@ -1,4 +1,4 @@
-import { useState, FunctionComponent } from "react";
+import { useState, FunctionComponent, useRef } from "react";
 import Project from "../../models/Project";
 
 const DetailsRight: FunctionComponent<{
@@ -7,8 +7,9 @@ const DetailsRight: FunctionComponent<{
 }> = ({ project, onUpdate }) => {
   const [notes, setNotes] = useState<string[]>(project.notes);
   const [note, setNote] = useState<string>("");
-
+  const [keyword, setKeyword] = useState("");
   const [message, setMessage] = useState("");
+  const textareaRef = useRef<any>(null);
 
   const onUpdateNotes = () => {
     if (note) {
@@ -36,31 +37,58 @@ const DetailsRight: FunctionComponent<{
       });
   };
 
+  const onEditNote = (note: string) => {
+    setNotes((oldNotes) => oldNotes.filter((n) => n != note));
+    setNote(note);
+    window.scrollTo(0, document.body.scrollHeight);
+    textareaRef.current.focus();
+  };
+
   return (
     <section className="transparent p-4 rounded-lg mt-4 md:m-4 md:w-3/5">
-      <article className="capitalize text-2xl text-gray-50 opacity-70">
-        Keep notes
-      </article>
+      <header>
+        <article className="project-details-label">
+          Keep notes for yourself
+        </article>
+        <article>
+          <input
+            className="form-input"
+            type="text"
+            placeholder="Filter notes ..."
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+          />
+        </article>
+      </header>
       <article>
-        {notes.map((note) => (
-          <div
-            style={{
-              wordWrap: "break-word",
-            }}
-            className="note border-l-2 border-blue-400 rounded p-1 mx-2 my-3"
-          >
-            {note}{" "}
-            <span
-              className="text-red-400 text-xs cursor-pointer  underline"
-              onClick={(_) => onDeleteNote(note)}
+        {notes
+          .filter((note) => note.includes(keyword))
+          .map((note) => (
+            <div
+              style={{
+                wordWrap: "break-word",
+              }}
+              className="note border-l-2 border-blue-400 rounded p-1 mx-2 my-3"
             >
-              Delete
-            </span>
-          </div>
-        ))}
+              {note}
+              <span
+                className="px-1 text-red-400 text-xs cursor-pointer  underline"
+                onClick={(_) => onDeleteNote(note)}
+              >
+                Delete
+              </span>
+              <span
+                onClick={(_) => onEditNote(note)}
+                className="px-1 text-blue-400 text-xs cursor-pointer underline"
+              >
+                Edit
+              </span>
+            </div>
+          ))}
       </article>
       <article>
         <textarea
+          ref={textareaRef}
           value={note}
           onChange={(e) => setNote(e.target.value)}
           placeholder="Type a note"

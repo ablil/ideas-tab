@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
-import Details from "./projects/Details";
+import Details from "./Details/Details";
 import Grid from "./projects/Grid";
 import { ProjectsContext } from "../providers/ProjectsProvider";
 import InputModal from "./commons/InputModal";
