@@ -12,7 +12,7 @@ const ProjectsPage = () => {
     <UserProvider>
       <ProjectsProvider>
         <Sidebar />
-        <main className="pt-16 lg:pl-16">
+        <main className="pt-16 md:pt-2 lg:pl-16">
           <Switch>
             <Route exact path="/" render={(_) => <Redirect to="/projects" />} />
             <Route exact path="/profile" component={Profile} />
