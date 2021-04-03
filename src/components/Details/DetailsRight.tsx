@@ -90,16 +90,22 @@ const DetailsRight: FunctionComponent<{
         <textarea
           ref={textareaRef}
           value={note}
+          onKeyDown={(e) => {
+            if (e.key == "Enter" && e.ctrlKey) {
+              onUpdateNotes();
+            }
+          }}
           onChange={(e) => setNote(e.target.value)}
           placeholder="Type a note"
           className="block bg-gray-900 rounded w-full p-2 outline-none"
         ></textarea>
-        <span
+        <p className="text-xs text-gray-200">Ctrl + Enter to submit</p>
+        <button
           onClick={onUpdateNotes}
-          className="text-blue-400 text-sm underline  m-2 float-right cursor-pointer"
+          className="btn btn-blue m-1 w-full md:w-2/4 mx-auto"
         >
           Add
-        </span>
+        </button>
       </article>
       {message && (
         <article className="text-sm py-2 text-red-400  text-center">
