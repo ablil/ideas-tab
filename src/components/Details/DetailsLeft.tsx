@@ -34,6 +34,9 @@ const DetailsLeft: FunctionComponent<{
     updateCallback(newValue);
   };
 
+  /**
+   * Reset project state to original values
+   */
   const onCancel = () => {
     setName(project.name);
     setDescription(project.description || "");
@@ -43,6 +46,10 @@ const DetailsLeft: FunctionComponent<{
     setModified(false);
   };
 
+  /**
+   * Update the project state by calling the remote api
+   * @param e event
+   */
   const updateProject = (e: any) => {
     e.preventDefault();
     setMessage("");
@@ -67,10 +74,36 @@ const DetailsLeft: FunctionComponent<{
       });
   };
 
+  /**
+   * remove deteled link from list, and set state to modified
+   * @param link link
+   */
+  const onDeleteLink = (link: string) => {
+    setLinks((oldLinks) => oldLinks.filter((l) => link != l));
+    setModified(true);
+  };
+
+  /**
+   * add link to list of links
+   * @param link link
+   */
+  const onAddLink = (link: string) => {
+    setLinks((oldLinks) => oldLinks.concat(link));
+    setModified(true);
+  };
+
+  /**
+   * Add technologies to list of technologies
+   * @param technologies string of technologies joined with ,
+   */
+  const onAddTechnology = (technologies: string) => {
+    setTechnologies((old) => old.concat(technologies.split(",")));
+    setModified(true);
+  };
+
   return (
-    <form
+    <section
       id="project-details-left"
-      onSubmit={updateProject}
       className="transparent rounded-lg py-4 md:m-4 md:w-2/5 md:self-start md:sticky md:top-0"
     >
       <article className="project-details-field">
@@ -147,17 +180,32 @@ const DetailsLeft: FunctionComponent<{
         </div>
         <ul className="list-none">
           {links.map((link) => (
-            <li className="truncate underline text-sm opacity-50 px-2">
-              <a href={link} target="_blank" rel="noreferrer">
+            <li className="underline text-sm px-2">
+              <a
+                className="truncate opacity-70"
+                href={link}
+                target="_blank"
+                rel="noreferrer"
+              >
                 {link}
               </a>
+              <span
+                onClick={(_) => onDeleteLink(link)}
+                className="px-2 text-xs text-red-400 underline cursor-pointer"
+              >
+                Delete
+              </span>
             </li>
           ))}
         </ul>
       </article>
 
       <article className="center-with-flex flex-col flex-wrap md:flex-row p-4">
-        <button type="submit" className="btn btn-blue relative w-5/6 md:w-1/4">
+        <button
+          onClick={updateProject}
+          type="submit"
+          className="btn btn-blue relative w-5/6 md:w-1/4"
+        >
           {modified && (
             <span className="animate-ping absolute inline-flex h-3 w-3 -top-1 -left-1 rounded-full bg-purple-400 opacity-75"></span>
           )}
@@ -187,7 +235,7 @@ const DetailsLeft: FunctionComponent<{
         subtitle="Some useful links you may check"
         type="url"
         isVisible={linkModal}
-        onOk={(value) => setLinks((old) => old.concat(value))}
+        onOk={onAddLink}
         onCancel={() => setLinkModal(false)}
       />
       <InputModal
@@ -195,10 +243,10 @@ const DetailsLeft: FunctionComponent<{
         subtitle="Comma separated values"
         type="text"
         isVisible={techModal}
-        onOk={(value) => setTechnologies((old) => old.concat(value.split(",")))}
+        onOk={onAddTechnology}
         onCancel={() => setTechModal(false)}
       />
-    </form>
+    </section>
   );
 };
 
