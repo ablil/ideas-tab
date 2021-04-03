@@ -182,7 +182,7 @@ const DetailsLeft: FunctionComponent<{
           {links.map((link) => (
             <li className="underline text-sm px-2">
               <a
-                className="truncate opacity-70"
+                className="overflow-ellipsis opacity-70"
                 href={link}
                 target="_blank"
                 rel="noreferrer"
