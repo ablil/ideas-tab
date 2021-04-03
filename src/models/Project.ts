@@ -6,4 +6,6 @@ export default interface Project {
   technologies: string[];
   links: string[];
   notes: string[];
+  created?: Date;
+  lastModified?: Date;
 }

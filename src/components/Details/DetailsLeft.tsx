@@ -2,8 +2,6 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import Project from "../../models/Project";
 import InputModal from "../commons/InputModal";
 
-// TODO: when no data is availble display N/A
-
 const DetailsLeft: FunctionComponent<{
   project: Project;
   onUpdate: (newProject: Project) => Promise<void>;
@@ -61,6 +59,8 @@ const DetailsLeft: FunctionComponent<{
       technologies,
       links,
       notes: project.notes,
+      created: project.created || new Date(),
+      lastModified: new Date(),
     })
       .then((_) => {
         setMessage("Updated Successfully");
@@ -220,6 +220,20 @@ const DetailsLeft: FunctionComponent<{
         </button>
       </article>
 
+      <article>
+        {/* I dont what makes the confustion between date from typescript and firesbase, either way, ignoring typescript check would make it work for the time being */}
+        <hr className="w-5/6 mx-auto my-2 opacity-50" />
+        <p className="text-xs px-2">
+          <span className="font-bold px-2">Created</span>
+          {/* @ts-ignore */}
+          {project.created?.toDate().toLocaleString()}
+        </p>
+        <p className="text-xs px-2">
+          <span className="font-bold px-2">Modified</span>
+          {/* @ts-ignore */}
+          {project.lastModified?.toDate().toLocaleString()}
+        </p>
+      </article>
       {/* message to display for the user */}
       {message && (
         <article className="py-2 text-center">

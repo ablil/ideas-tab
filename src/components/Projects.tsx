@@ -29,6 +29,8 @@ const Projects = () => {
       notes: [],
       links: [],
       repository: "",
+      created: new Date(),
+      lastModified: new Date(),
     })
       .then((_) => {
         console.log("Project created successfully");
