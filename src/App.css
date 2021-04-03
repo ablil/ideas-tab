@@ -144,4 +144,12 @@
   svg#loading rect{
     fill: rgba(96, 165, 250, var(--tw-bg-opacity));
   }
+  
+  .hint {
+    @apply text-xs text-gray-200;
+  }
+  .hint::before {
+    content: 'Hint: ';
+    font-weight: bold;
+  }
 }

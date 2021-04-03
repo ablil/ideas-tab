@@ -135,6 +135,7 @@ const DetailsLeft: FunctionComponent<{
             </span>
           ))}
         </div>
+        <p className="hint pl-2">Click to remove</p>
       </article>
 
       <article className="project-details-field">

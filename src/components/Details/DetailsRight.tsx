@@ -99,7 +99,7 @@ const DetailsRight: FunctionComponent<{
           placeholder="Type a note"
           className="block bg-gray-900 rounded w-full p-2 outline-none"
         ></textarea>
-        <p className="text-xs text-gray-200">Ctrl + Enter to submit</p>
+        <p className="hint">Ctrl + Enter to submit</p>
         <button
           onClick={onUpdateNotes}
           className="btn btn-blue m-1 w-full md:w-2/4 mx-auto"
