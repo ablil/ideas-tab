@@ -107,7 +107,9 @@ const DetailsLeft: FunctionComponent<{
       className="transparent rounded-lg py-4 md:m-4 md:w-2/5 md:self-start md:sticky md:top-0"
     >
       <article className="project-details-field">
-        <div className="project-details-label">name</div>
+        <div className="project-details-label">
+          <u>n</u>ame
+        </div>
         <input
           type="text"
           minLength={6}
@@ -117,16 +119,17 @@ const DetailsLeft: FunctionComponent<{
           value={name}
           onChange={(e) => onChange(setName, e.target.value)}
           className="project-details-input"
+          accessKey="n"
         />
       </article>
       <article className="project-details-field">
         <div className="project-details-label">
-          Repository{" "}
+          <u>r</u>epository
           <a
             href={repository || "#"}
             target="_blank"
             rel="noreferrer"
-            className="small-link"
+            className="small-link px-2"
           >
             visit link
           </a>
@@ -137,15 +140,19 @@ const DetailsLeft: FunctionComponent<{
           value={repository}
           onChange={(e) => onChange(setRepository, e.target.value)}
           className="project-details-input"
+          accessKey="r"
         />
       </article>
       <article className="project-details-field">
-        <div className="project-details-label">Description</div>
+        <div className="project-details-label">
+          <u>d</u>escription
+        </div>
         <textarea
           value={description}
           placeholder="N/A"
           onChange={(e) => onChange(setDescription, e.target.value)}
           className="project-details-input"
+          accessKey="d"
         ></textarea>
       </article>
       <article className="project-details-field">
@@ -205,18 +212,20 @@ const DetailsLeft: FunctionComponent<{
           onClick={updateProject}
           type="submit"
           className="btn btn-blue relative w-5/6 md:w-1/4"
+          accessKey="u"
         >
           {modified && (
             <span className="animate-ping absolute inline-flex h-3 w-3 -top-1 -left-1 rounded-full bg-purple-400 opacity-75"></span>
           )}
-          Update
+          <u>U</u>pdate
         </button>
         <button
           type="reset"
           onClick={onCancel}
           className="btn btn-red w-5/6 md:w-1/4 m-2 md:mx-auto"
+          accessKey="c"
         >
-          Cancel
+          <u>C</u>ancel
         </button>
       </article>
 
