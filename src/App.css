@@ -155,4 +155,7 @@
   .auth-link {
     @apply px-2 underline text-sm text-gray-100 hover:text-gray-300;
   }
+  .auth-wrapper {
+    @apply transparent shadow rounded mt-4 mx-auto text-white max-w-lg border-l-8 border-blue-400;
+  }
 }

@@ -38,7 +38,7 @@ const Register = () => {
       });
   };
   return (
-    <article className="transparent shadow rounded mt-4 mx-auto text-white max-w-lg border-l-8 border-blue-400">
+    <article className="auth-wrapper">
       <header className="px-12 text-2xl pt-8">
         <h1 className="text-blue-400 ">Account Registration</h1>
       </header>

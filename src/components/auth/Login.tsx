@@ -34,7 +34,7 @@ const Login = () => {
   };
 
   return (
-    <section className="transparent shadow rounded mt-4 mx-auto text-white max-w-lg min-w-lg border-r-8 border-blue-400">
+    <section className="auth-wrapper">
       <header className="px-12 text-2xl pt-8">
         <h1 className="text-blue-400 ">Account Login</h1>
       </header>
