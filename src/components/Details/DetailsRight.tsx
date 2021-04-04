@@ -38,7 +38,7 @@ const DetailsRight: FunctionComponent<{
   };
 
   const onEditNote = (note: string) => {
-    setNotes((oldNotes) => oldNotes.filter((n) => n != note));
+    setNotes((oldNotes) => oldNotes.filter((n) => n !== note));
     setNote(note);
     window.scrollTo(0, document.body.scrollHeight);
     textareaRef.current.focus();
@@ -65,6 +65,7 @@ const DetailsRight: FunctionComponent<{
           .filter((note) => note.includes(keyword))
           .map((note) => (
             <div
+              key={note.length}
               style={{
                 wordWrap: "break-word",
               }}
@@ -91,7 +92,7 @@ const DetailsRight: FunctionComponent<{
           ref={textareaRef}
           value={note}
           onKeyDown={(e) => {
-            if (e.key == "Enter" && e.ctrlKey) {
+            if (e.key === "Enter" && e.ctrlKey) {
               onUpdateNotes();
             }
           }}
