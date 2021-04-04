@@ -152,4 +152,7 @@
     content: 'Hint: ';
     font-weight: bold;
   }
+  .auth-link {
+    @apply px-2 underline text-sm text-gray-100 hover:text-gray-300;
+  }
 }

@@ -76,12 +76,12 @@ const Login = () => {
             {loading ? "Authenticating ..." : "Login"}
           </button>
         </article>
-        <article className="p-4">
-          <Link
-            className="underline text-gray-100 hover:text-gray-300"
-            to="/register"
-          >
-            Create new account ?
+        <article className="p-4 flex justify-center flex-wrap">
+          <Link className="auth-link" to="/register">
+            create account
+          </Link>
+          <Link className="auth-link" to="/reset">
+            forgot password
           </Link>
         </article>
       </form>

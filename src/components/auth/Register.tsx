@@ -94,12 +94,9 @@ const Register = () => {
             {loading ? "Registering ..." : "Register"}
           </button>
         </article>
-        <div className="p-4">
-          <Link
-            className="underline text-gray-100 hover:text-gray-300"
-            to="/login"
-          >
-            Already have an account ?
+        <div className="p-4 flex justify-center flex-wrap">
+          <Link className="auth-link" to="/login">
+            already have an account
           </Link>
         </div>
       </form>
