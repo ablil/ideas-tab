@@ -6,6 +6,7 @@ import Projects from "../components/Projects";
 import NotFound from "../components/commons/404";
 import ProjectsProvider from "../providers/ProjectsProvider";
 import UserProvider from "../providers/UserProvider";
+import Stats from "../components/statistics/Stats";
 
 const ProjectsPage = () => {
   return (
@@ -17,6 +18,7 @@ const ProjectsPage = () => {
             <Route exact path="/" render={(_) => <Redirect to="/projects" />} />
             <Route exact path="/profile" component={Profile} />
             <Route path="/projects" component={Projects} />
+            <Route path="/stats" component={Stats} />
             <Route path="*" component={NotFound} />
           </Switch>
         </main>
