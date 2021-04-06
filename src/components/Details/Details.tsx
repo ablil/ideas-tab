@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Project from "../../models/Project";
 import Loading from "../commons/loading";
 import DetailsLeft from "./DetailsLeft";

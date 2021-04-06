@@ -99,13 +99,13 @@
   }
 
   .project-details-field {
-    @apply text-gray-50 px-3;
+    @apply text-gray-50 px-3 py-2;
   }
   .project-details-label {
     @apply text-sm  text-blue-300 capitalize px-2;
   }
   .project-details-input {
-    @apply block bg-transparent transition-colors duration-300 hover:bg-gray-900 rounded w-full p-2 outline-none;
+    @apply block bg-transparent transition-colors duration-300 hover:bg-gray-900 rounded w-full p-2 outline-none form-input;
   }
   .navbar {
     @apply fixed w-full lg:w-14 h-12 lg:h-full bg-gradient-to-r lg:bg-gradient-to-b  from-gray-900 to-gray-400 py-2 flex items-center lg:flex-col z-10;
@@ -152,4 +152,16 @@
     content: 'Hint: ';
     font-weight: bold;
   }
+  .auth-link {
+    @apply px-2 underline text-sm text-gray-100 hover:text-gray-300;
+  }
+  .auth-wrapper {
+    @apply transparent shadow rounded mt-4 mx-auto text-white max-w-lg border-l-8 border-blue-400;
+  }
+
+  /* start overriding ckeditor style */
+  .ck-content {
+    background: rgb(17, 24, 39) !important;
+  }
+  /* end overriding ckeditor style */
 }

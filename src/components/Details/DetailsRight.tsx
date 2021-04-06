@@ -1,5 +1,7 @@
-import { useState, FunctionComponent, useRef } from "react";
+import { useState, FunctionComponent, useRef, useEffect } from "react";
 import Project from "../../models/Project";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const DetailsRight: FunctionComponent<{
   project: Project;
@@ -9,7 +11,7 @@ const DetailsRight: FunctionComponent<{
   const [note, setNote] = useState<string>("");
   const [keyword, setKeyword] = useState("");
   const [message, setMessage] = useState("");
-  const textareaRef = useRef<any>(null);
+  const editorRef = useRef<any>(null);
 
   const onUpdateNotes = () => {
     if (note) {
@@ -38,10 +40,9 @@ const DetailsRight: FunctionComponent<{
   };
 
   const onEditNote = (note: string) => {
-    setNotes((oldNotes) => oldNotes.filter((n) => n != note));
+    setNotes((oldNotes) => oldNotes.filter((n) => n !== note));
     setNote(note);
     window.scrollTo(0, document.body.scrollHeight);
-    textareaRef.current.focus();
   };
 
   return (
@@ -65,12 +66,13 @@ const DetailsRight: FunctionComponent<{
           .filter((note) => note.includes(keyword))
           .map((note) => (
             <div
+              key={note}
               style={{
                 wordWrap: "break-word",
               }}
               className="note border-l-2 border-blue-400 rounded p-1 mx-2 my-3"
             >
-              {note}
+              <div dangerouslySetInnerHTML={{ __html: note }}></div>
               <span
                 className="px-1 text-red-400 text-xs cursor-pointer  underline"
                 onClick={(_) => onDeleteNote(note)}
@@ -87,19 +89,15 @@ const DetailsRight: FunctionComponent<{
           ))}
       </article>
       <article>
-        <textarea
-          ref={textareaRef}
-          value={note}
-          onKeyDown={(e) => {
-            if (e.key == "Enter" && e.ctrlKey) {
-              onUpdateNotes();
-            }
-          }}
-          onChange={(e) => setNote(e.target.value)}
-          placeholder="Type a note"
+        <CKEditor
+          ref={editorRef}
           className="block bg-gray-900 rounded w-full p-2 outline-none"
-        ></textarea>
-        <p className="hint">Ctrl + Enter to submit</p>
+          editor={ClassicEditor}
+          data={note}
+          onChange={(event: any, editor: any) => {
+            setNote(editor.getData());
+          }}
+        />
         <button
           onClick={onUpdateNotes}
           className="btn btn-blue m-1 w-full md:w-2/4 mx-auto"

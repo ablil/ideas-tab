@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { auth } from "../../config/firebase";
+import { ReactComponent as LoginImage } from "../../assets/images/dev-productivity.svg";
 
 const Register = () => {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -38,72 +39,89 @@ const Register = () => {
       });
   };
   return (
-    <article className="transparent shadow rounded mt-4 mx-auto text-white max-w-lg border-l-8 border-blue-400">
-      <header className="px-12 text-2xl pt-8">
-        <h1 className="text-blue-400 ">Account Registration</h1>
-      </header>
-      <form action="">
-        <article className="py-4 px-12">
-          <label htmlFor="email" className="block small-text text-gray-200">
-            Email
-          </label>
-          <input
-            id="email"
-            className="form-input"
-            type="email"
-            ref={emailRef}
-          />
+    <section className="bg-image fade-in flex flex-col-reverse lg:flex-row">
+      <article className="lg:w-2/4 py-12">
+        <article className="auth-wrapper">
+          <header className="px-12 text-2xl pt-8">
+            <h1 className="text-blue-400 ">Account Registration</h1>
+          </header>
+          <form action="">
+            <article className="py-4 px-12">
+              <label htmlFor="email" className="block small-text text-gray-200">
+                Email
+              </label>
+              <input
+                id="email"
+                className="form-input"
+                type="email"
+                ref={emailRef}
+              />
+            </article>
+            <article className="py-4 px-12">
+              <label
+                className="block small-text text-gray-200"
+                htmlFor="password"
+              >
+                Password
+              </label>
+              <input
+                id="password"
+                className="form-input"
+                type="password"
+                ref={passwordRef}
+              />
+            </article>
+            <article className="py-4 px-12">
+              <label
+                className="block small-text text-gray-200"
+                htmlFor="reptype-password"
+              >
+                Retype Password
+              </label>
+              <input
+                id="retype-password"
+                className="form-input"
+                type="password"
+                ref={retypePasswordRef}
+              />
+            </article>
+            {error && (
+              <article className="text-red-500 text-sm  text-center">
+                {error}
+              </article>
+            )}
+            <article className="py-4 px-12">
+              <button
+                type="submit"
+                className="btn w-3/4 btn-blue"
+                disabled={loading}
+                onClick={onRegister}
+              >
+                {loading ? "Registering ..." : "Register"}
+              </button>
+            </article>
+            <div className="p-4 flex justify-center flex-wrap">
+              <Link className="auth-link" to="/login">
+                already have an account
+              </Link>
+            </div>
+          </form>
         </article>
-        <article className="py-4 px-12">
-          <label className="block small-text text-gray-200" htmlFor="password">
-            Password
-          </label>
-          <input
-            id="password"
-            className="form-input"
-            type="password"
-            ref={passwordRef}
-          />
-        </article>
-        <article className="py-4 px-12">
-          <label
-            className="block small-text text-gray-200"
-            htmlFor="reptype-password"
-          >
-            Retype Password
-          </label>
-          <input
-            id="retype-password"
-            className="form-input"
-            type="password"
-            ref={retypePasswordRef}
-          />
-        </article>
-        {error && (
-          <article className="text-red-500 text-sm  text-center">
-            {error}
-          </article>
-        )}
-        <article className="py-4 px-12">
-          <button
-            type="submit"
-            className="btn w-3/4 btn-blue"
-            disabled={loading}
-            onClick={onRegister}
-          >
-            {loading ? "Registering ..." : "Register"}
-          </button>
-        </article>
-        <div className="p-4">
-          <Link
-            className="underline text-gray-100 hover:text-gray-300"
-            to="/login"
-          >
-            Already have an account ?
-          </Link>
+      </article>
+      <article className="lg:w-2/4">
+        <div className="text-white text-center w-3/4 mx-auto py-12">
+          <h1 className="text-2xl">
+            You will never know when you get that one million $$ idea
+          </h1>
+          <h3 className="text-md py-4">
+            Create an account and keep tracks of you side projects
+          </h3>
         </div>
-      </form>
-    </article>
+        <div className="center-with-flex py-4">
+          <LoginImage className="hidden lg:block w-3/4 h-auto" />
+        </div>
+      </article>
+    </section>
   );
 };
 

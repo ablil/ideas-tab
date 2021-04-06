@@ -79,7 +79,7 @@ const DetailsLeft: FunctionComponent<{
    * @param link link
    */
   const onDeleteLink = (link: string) => {
-    setLinks((oldLinks) => oldLinks.filter((l) => link != l));
+    setLinks((oldLinks) => oldLinks.filter((l) => link !== l));
     setModified(true);
   };
 
@@ -165,6 +165,7 @@ const DetailsLeft: FunctionComponent<{
         <div className="flex flex-wrap">
           {technologies.map((tech) => (
             <span
+              key={tech}
               title="click to delete"
               onClick={(_) =>
                 setTechnologies((old) => old.filter((t) => t !== tech))
@@ -187,7 +188,7 @@ const DetailsLeft: FunctionComponent<{
         </div>
         <ul className="list-none">
           {links.map((link) => (
-            <li className="underline text-sm px-2">
+            <li className="underline text-sm px-2" key={link}>
               <a
                 className="overflow-ellipsis opacity-70"
                 href={link}
