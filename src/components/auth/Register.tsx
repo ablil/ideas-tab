@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { auth } from "../../config/firebase";
 import { ReactComponent as LoginImage } from "../../assets/images/dev-productivity.svg";
+import ThirdPartyAuthProviders from "./ThirdPartyAuthProviders";
 
 const Register = () => {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -37,6 +38,10 @@ const Register = () => {
         setError("Failed to create register, try later");
         setLoading(false);
       });
+  };
+
+  const onThirdPartyAuthenticationError = (err: Error) => {
+    setError("Failed to authenticate, try later");
   };
   return (
     <section className="bg-image fade-in flex flex-col-reverse lg:flex-row">
@@ -106,6 +111,7 @@ const Register = () => {
               </Link>
             </div>
           </form>
+          <ThirdPartyAuthProviders onError={onThirdPartyAuthenticationError} />
         </article>
       </article>
       <article className="lg:w-2/4">
