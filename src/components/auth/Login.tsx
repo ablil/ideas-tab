@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import firebase from "firebase/app";
 import { useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../config/firebase";
 import { ReactComponent as RegisterImage } from "../../assets/images/new-task.svg";
+import ThirdPartyAuthProviders from "./ThirdPartyAuthProviders";
 
 const Login = () => {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -28,10 +30,13 @@ const Login = () => {
       .signInWithEmailAndPassword(credentials.email, credentials.password)
       .then((creds) => history.push("/projects"))
       .catch((err) => {
-        console.error(err);
         setError("Failed to authenticate !!!");
         setLoading(false);
       });
+  };
+
+  const onThirdPartyAuthenticationError = (err: Error) => {
+    setError("Failed to authenticate, try later");
   };
 
   return (
@@ -102,6 +107,7 @@ const Login = () => {
               </Link>
             </article>
           </form>
+          <ThirdPartyAuthProviders onError={onThirdPartyAuthenticationError} />
         </section>
       </article>
     </section>
