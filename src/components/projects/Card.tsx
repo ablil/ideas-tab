@@ -25,7 +25,7 @@ const Card: FunctionComponent<{
             <h1 className="truncate  text-gray-50">{project.name}</h1>
             <p
               title={project.description ? project.description : "n/a"}
-              className="truncate text-gray-200 opacity-50 group-hover:opacity-70 text-md"
+              className="truncate text-gray-200 text-xs opacity-50 group-hover:opacity-70 text-md"
             >
               {project.description ? project.description : "No Description"}
             </p>
@@ -41,7 +41,7 @@ const Card: FunctionComponent<{
                 Repository link
               </a>
             ) : (
-              <span className="text-gray-50 text-xs-opcity-50">
+              <span className="text-gray-50 text-xs opcity-50">
                 No Repository Link
               </span>
             )}

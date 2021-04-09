@@ -1,4 +1,4 @@
-import react, { useContext, useEffect, useRef } from "react";
+import react, { useContext, useEffect, useMemo, useRef } from "react";
 import { ProjectsContext } from "../../providers/ProjectsProvider";
 import { Chart, registerables } from "chart.js";
 
@@ -12,7 +12,7 @@ const Stats = () => {
    * Calcualte frequency of technologies
    * @returns object {tech: freq}
    */
-  const filterData = () => {
+  const calcFrequncies = () => {
     const technologies: any = {};
 
     projects?.forEach((p) => {
@@ -29,18 +29,17 @@ const Stats = () => {
     return technologies;
   };
 
+  const technologies = useMemo(() => calcFrequncies(), [projects]);
   useEffect(() => {
-    const chartData = filterData();
-
     let chart = new Chart("stats", {
       type: "pie",
       data: {
-        labels: Object.keys(chartData),
+        labels: Object.keys(technologies),
         datasets: [
           {
-            data: Object.values(chartData),
+            data: Object.values(technologies),
             // Generate random rgb color for pie chart
-            backgroundColor: Object.keys(chartData).map(
+            backgroundColor: Object.keys(technologies).map(
               (d) =>
                 `rgb(${Math.round(Math.random() * 255)},${Math.round(
                   Math.random() * 255
@@ -66,18 +65,26 @@ const Stats = () => {
       <header className="transparent mx-auto text-blue-400 text-2xl py-4 text-center lg:w-2/4 rounded border-l-4 border-blue-400">
         Total number of projects : {projects?.length || 0}{" "}
       </header>
-      <section className="transparent text-white p-4 border-l-2 border-blue-400 mx-auto mt-2 lg:w-4/6">
-        <h1 className="text-center py-2">
-          Check what technoloies you use the most
-        </h1>
-        <canvas
-          className="m-auto"
-          id="stats"
-          ref={stats}
-          width={400}
-          height={400}
-        ></canvas>
-      </section>
+      {Object.keys(technologies).length != 0 ? (
+        <section className="transparent text-white p-4 border-l-2 border-blue-400 mx-auto mt-2 lg:w-4/6">
+          <h1 className="text-center py-2">
+            Check what technologies your are using the most.
+          </h1>
+          <canvas
+            className="m-auto"
+            id="stats"
+            ref={stats}
+            width={400}
+            height={400}
+          ></canvas>
+        </section>
+      ) : (
+        <section className="transparent text-white p-4 border-l-2 border-blue-400 mx-auto mt-2 lg:w-4/6">
+          <h1 className="text-center">
+            It seems you did not specify any technology on your project
+          </h1>
+        </section>
+      )}
     </section>
   );
 };
