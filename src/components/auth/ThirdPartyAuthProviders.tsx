@@ -1,4 +1,4 @@
-import react, { FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import firebase from "firebase";
 import { useHistory } from "react-router";
 import { ReactComponent as GoogleIcon } from "../../assets/icons/auth-provider/google.svg";

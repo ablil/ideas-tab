@@ -3,11 +3,11 @@ import { auth } from "../../config/firebase";
 
 const ForgetPassword = () => {
   const [email, setEmail] = useState("");
-  const [isSubmited, setIsSubmited] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const onForgetPassword = () => {
     if (email.length) {
-      setIsSubmited(true);
+      setIsSubmitted(true);
       auth
         .sendPasswordResetEmail(email)
         .then((_) => {})
@@ -15,7 +15,7 @@ const ForgetPassword = () => {
     }
   };
 
-  return isSubmited ? (
+  return isSubmitted ? (
     <section className="h-full w-full center-with-flex">
       <section className="auth-wrapper p-8 w-full md:w-2/4">
         If your email is associated with an account, you will receive a reset

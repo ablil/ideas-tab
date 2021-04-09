@@ -24,8 +24,8 @@ const InputModal: FunctionComponent<{
         background: "rgba(0,0,0,.4)",
         display: visibility ? "block" : "none",
       }}
-      className="tansparent block w-full h-full fixed top-0 left-0"
-      onClick={(e) => {
+      className="transparent block w-full h-full fixed top-0 left-0"
+      onClick={() => {
         setVisibility(false);
         onCancel();
       }}
@@ -67,7 +67,7 @@ const InputModal: FunctionComponent<{
           >
             Cancel
           </button>
-          <button onClick={(e) => {
+          <button onClick={() => {
             onOk(value);
             onCancel()
           }} className="rounded py-1 px-2 m-2 uppercase bg-blue-400 opacity-80 hover:opacity-100 duration-300">

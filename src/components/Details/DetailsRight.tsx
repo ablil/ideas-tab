@@ -1,4 +1,4 @@
-import { useState, FunctionComponent, useRef, useEffect } from "react";
+import { useState, FunctionComponent, useRef} from "react";
 import Project from "../../models/Project";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
