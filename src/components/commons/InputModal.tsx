@@ -32,7 +32,7 @@ const InputModal: FunctionComponent<{
     >
       <section
         onClick={(e) => e.stopPropagation()}
-        className="content bg-gray-900 border-2 border-blue-400 w-3/4 lg:w-3/6 mx-auto mt-40 flex flex-col"
+        className="content bg-gray-900 border-2 border-blue-400 w-3/4 lg:w-3/6 mx-auto mt-20 flex flex-col"
       >
         <header className="relative p-2">
           <h2 className="text-blue-400 capitalize pl-2">{title}</h2>
