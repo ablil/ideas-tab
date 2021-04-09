@@ -167,9 +167,10 @@ const DetailsLeft: FunctionComponent<{
             <span
               key={tech}
               title="click to delete"
-              onClick={(_) =>
-                setTechnologies((old) => old.filter((t) => t !== tech))
-              }
+              onClick={(_) => {
+                setTechnologies((old) => old.filter((t) => t !== tech));
+                setModified(true);
+              }}
               className="badge cursor-pointer hover:bg-red-400"
             >
               {tech}
