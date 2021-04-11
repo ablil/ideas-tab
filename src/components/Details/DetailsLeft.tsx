@@ -13,13 +13,13 @@ const DetailsLeft: FunctionComponent<{
   const [technologies, setTechnologies] = useState<string[]>([]);
   const [links, setLinks] = useState<string[]>([]);
 
-  // is project infor modified
+  // is project info modified
   const [modified, setModified] = useState(false);
 
   const [techModal, setTechModal] = useState(false);
   const [linkModal, setLinkModal] = useState(false);
 
-  // error messsage
+  // error message
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(true);
 
@@ -75,7 +75,7 @@ const DetailsLeft: FunctionComponent<{
   };
 
   /**
-   * remove deteled link from list, and set state to modified
+   * remove deleted link from list, and set state to modified
    * @param link link
    */
   const onDeleteLink = (link: string) => {
@@ -167,9 +167,10 @@ const DetailsLeft: FunctionComponent<{
             <span
               key={tech}
               title="click to delete"
-              onClick={(_) =>
-                setTechnologies((old) => old.filter((t) => t !== tech))
-              }
+              onClick={(_) => {
+                setTechnologies((old) => old.filter((t) => t !== tech));
+                setModified(true);
+              }}
               className="badge cursor-pointer hover:bg-red-400"
             >
               {tech}
@@ -231,7 +232,9 @@ const DetailsLeft: FunctionComponent<{
       </article>
 
       <article>
-        {/* I dont what makes the confustion between date from typescript and firesbase, either way, ignoring typescript check would make it work for the time being */}
+        {/* I dont what makes the confusion between date between
+        typescript and Firebase, either way, ignoring typescript check
+        would make it work for the time being */}
         <hr className="w-5/6 mx-auto my-2 opacity-50" />
         <p className="text-xs px-2">
           <span className="font-bold px-2">Created</span>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import firebase from "firebase/app";
 import { useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../config/firebase";
@@ -28,14 +27,14 @@ const Login = () => {
     setLoading(true);
     auth
       .signInWithEmailAndPassword(credentials.email, credentials.password)
-      .then((creds) => history.push("/projects"))
-      .catch((err) => {
+      .then(() => history.push("/projects"))
+      .catch(() => {
         setError("Failed to authenticate !!!");
         setLoading(false);
       });
   };
 
-  const onThirdPartyAuthenticationError = (err: Error) => {
+  const onThirdPartyAuthenticationError = () => {
     setError("Failed to authenticate, try later");
   };
 

@@ -40,7 +40,7 @@ const Register = () => {
       });
   };
 
-  const onThirdPartyAuthenticationError = (err: Error) => {
+  const onThirdPartyAuthenticationError = () => {
     setError("Failed to authenticate, try later");
   };
   return (
@@ -79,7 +79,7 @@ const Register = () => {
             <article className="py-4 px-12">
               <label
                 className="block small-text text-gray-200"
-                htmlFor="reptype-password"
+                htmlFor="retype-password"
               >
                 Retype Password
               </label>

@@ -1,7 +1,7 @@
-import react, { FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import { useHistory } from "react-router";
 
-const GoBack: FunctionComponent<{}> = () => {
+const GoBack: FunctionComponent = () => {
   const history = useHistory();
 
   return (

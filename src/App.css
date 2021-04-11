@@ -39,6 +39,9 @@
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
+
+
+    --ck-color-base-background: rgb(17, 24, 39);
   }
 
   input:invalid {
@@ -159,9 +162,4 @@
     @apply transparent shadow rounded mt-4 mx-auto text-white max-w-lg border-l-8 border-blue-400;
   }
 
-  /* start overriding ckeditor style */
-  .ck-content {
-    background: rgb(17, 24, 39) !important;
-  }
-  /* end overriding ckeditor style */
 }

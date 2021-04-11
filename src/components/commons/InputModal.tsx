@@ -24,15 +24,15 @@ const InputModal: FunctionComponent<{
         background: "rgba(0,0,0,.4)",
         display: visibility ? "block" : "none",
       }}
-      className="tansparent block w-full h-full fixed top-0 left-0"
-      onClick={(e) => {
+      className="transparent block w-full h-full fixed top-0 left-0"
+      onClick={() => {
         setVisibility(false);
         onCancel();
       }}
     >
       <section
         onClick={(e) => e.stopPropagation()}
-        className="content bg-gray-900 border-2 border-blue-400 w-3/4 lg:w-3/6 mx-auto mt-40 flex flex-col"
+        className="content bg-gray-900 border-2 border-blue-400 w-3/4 lg:w-3/6 mx-auto mt-20 flex flex-col"
       >
         <header className="relative p-2">
           <h2 className="text-blue-400 capitalize pl-2">{title}</h2>
@@ -67,7 +67,7 @@ const InputModal: FunctionComponent<{
           >
             Cancel
           </button>
-          <button onClick={(e) => {
+          <button onClick={() => {
             onOk(value);
             onCancel()
           }} className="rounded py-1 px-2 m-2 uppercase bg-blue-400 opacity-80 hover:opacity-100 duration-300">
