@@ -104,12 +104,10 @@ const DetailsLeft: FunctionComponent<{
   return (
     <section
       id="project-details-left"
-      className="transparent rounded-lg py-4 md:m-4 md:w-2/5 md:self-start md:sticky md:top-0"
+      className="shadow-lg rounded-lg py-4 md:m-4 md:w-2/5 md:self-start md:sticky md:top-0 bg-white dark:bg-gray-800"
     >
-      <article className="project-details-field">
-        <div className="project-details-label">
-          <u>n</u>ame
-        </div>
+      <article className="input-wrapper">
+        <label className="text-blue-400 dark:text-yellow-400">name</label>
         <input
           type="text"
           minLength={6}
@@ -118,50 +116,37 @@ const DetailsLeft: FunctionComponent<{
           placeholder="N/A"
           value={name}
           onChange={(e) => onChange(setName, e.target.value)}
-          className="project-details-input"
           accessKey="n"
         />
       </article>
-      <article className="project-details-field">
-        <div className="project-details-label">
-          <u>r</u>epository
-          <a
-            href={repository || "#"}
-            target="_blank"
-            rel="noreferrer"
-            className="small-link px-2"
-          >
+      <article className="input-wrapper">
+        <label className="text-blue-400 dark:text-yellow-400">
+          repository
+          <a href={repository || "#"} target="_blank" rel="noreferrer">
             visit link
           </a>
-        </div>
+        </label>
         <input
           type="url"
           placeholder="N/A"
           value={repository}
           onChange={(e) => onChange(setRepository, e.target.value)}
-          className="project-details-input"
           accessKey="r"
         />
       </article>
-      <article className="project-details-field">
-        <div className="project-details-label">
-          <u>d</u>escription
-        </div>
+      <article className="input-wrapper">
+        <label className="text-blue-400 dark:text-yellow-400">description</label>
         <textarea
           value={description}
           placeholder="N/A"
           onChange={(e) => onChange(setDescription, e.target.value)}
-          className="project-details-input"
           accessKey="d"
         ></textarea>
       </article>
-      <article className="project-details-field">
-        <div className="project-details-label">
-          Technologies{" "}
-          <span onClick={(_) => setTechModal(true)} className="small-link">
-            add technology
-          </span>
-        </div>
+      <article className="input-wrapper">
+        <label className="text-blue-400 dark:text-yellow-400">
+          Technologies <a onClick={(_) => setTechModal(true)}>add technology</a>
+        </label>
         <div className="flex flex-wrap">
           {technologies.map((tech) => (
             <span
@@ -180,18 +165,15 @@ const DetailsLeft: FunctionComponent<{
         <p className="hint pl-2">Click to remove</p>
       </article>
 
-      <article className="project-details-field">
-        <div className="project-details-label">
-          Related links{" "}
-          <span onClick={(_) => setLinkModal(true)} className="small-link">
-            add link
-          </span>
-        </div>
+      <article className="input-wrapper">
+        <label className="text-blue-400 dark:text-yellow-400">
+          Related links <a onClick={(_) => setLinkModal(true)}>add link</a>
+        </label>
         <ul className="list-none">
           {links.map((link) => (
-            <li className="underline text-sm px-2" key={link}>
+            <li className="underline px-2" key={link}>
               <a
-                className="overflow-ellipsis opacity-70"
+                className="overflow-ellipsis text-base"
                 href={link}
                 target="_blank"
                 rel="noreferrer"
@@ -209,7 +191,7 @@ const DetailsLeft: FunctionComponent<{
         </ul>
       </article>
 
-      <article className="center-with-flex flex-col flex-wrap md:flex-row p-4">
+      <article className="flex-center flex-col flex-wrap md:flex-row p-4">
         <button
           onClick={updateProject}
           type="submit"

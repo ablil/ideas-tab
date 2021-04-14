@@ -44,86 +44,70 @@ const Register = () => {
     setError("Failed to authenticate, try later");
   };
   return (
-    <section className="bg-image fade-in flex flex-col-reverse lg:flex-row">
-      <article className="lg:w-2/4 py-12">
-        <article className="auth-wrapper">
-          <header className="px-12 text-2xl pt-8">
-            <h1 className="text-blue-400 ">Account Registration</h1>
-          </header>
-          <form action="">
-            <article className="py-4 px-12">
-              <label htmlFor="email" className="block small-text text-gray-200">
-                Email
-              </label>
-              <input
-                id="email"
-                className="form-input"
-                type="email"
-                ref={emailRef}
-              />
+    <section className="fade-in flex flex-col-reverse lg:flex-row">
+      <article className="lg:w-5/12 py-12">
+        <header className="px-12 text-2xl pt-8">
+          <h1>Account Registration</h1>
+        </header>
+        <form action="">
+          <article className="px-12">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              placeholder="username@example.com"
+              type="email"
+              ref={emailRef}
+            />
+          </article>
+          <article className="px-12">
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              placeholder="****************"
+              type="password"
+              ref={passwordRef}
+            />
+          </article>
+          <article className="px-12">
+            <label htmlFor="retype-password">Retype Password</label>
+            <input
+              id="retype-password"
+              placeholder="****************"
+              type="password"
+              ref={retypePasswordRef}
+            />
+          </article>
+          {error && (
+            <article className="text-red-400 text-sm text-semibold text-center">
+              {error}
             </article>
-            <article className="py-4 px-12">
-              <label
-                className="block small-text text-gray-200"
-                htmlFor="password"
-              >
-                Password
-              </label>
-              <input
-                id="password"
-                className="form-input"
-                type="password"
-                ref={passwordRef}
-              />
-            </article>
-            <article className="py-4 px-12">
-              <label
-                className="block small-text text-gray-200"
-                htmlFor="retype-password"
-              >
-                Retype Password
-              </label>
-              <input
-                id="retype-password"
-                className="form-input"
-                type="password"
-                ref={retypePasswordRef}
-              />
-            </article>
-            {error && (
-              <article className="text-red-500 text-sm  text-center">
-                {error}
-              </article>
-            )}
-            <article className="py-4 px-12">
-              <button
-                type="submit"
-                className="btn w-3/4 btn-blue"
-                disabled={loading}
-                onClick={onRegister}
-              >
-                {loading ? "Registering ..." : "Register"}
-              </button>
-            </article>
-            <div className="p-4 flex justify-center flex-wrap">
-              <Link className="auth-link" to="/login">
-                already have an account
-              </Link>
-            </div>
-          </form>
-          <ThirdPartyAuthProviders onError={onThirdPartyAuthenticationError} />
-        </article>
+          )}
+          <article className="py-4 px-12">
+            <button
+              type="submit"
+              className="btn w-3/4 btn-blue"
+              disabled={loading}
+              onClick={onRegister}
+            >
+              {loading ? "Registering ..." : "Register"}
+            </button>
+          </article>
+          <div className="p-4 flex justify-center flex-wrap">
+            <Link to="/login">already have an account</Link>
+          </div>
+        </form>
+        <ThirdPartyAuthProviders onError={onThirdPartyAuthenticationError} />
       </article>
-      <article className="lg:w-2/4">
-        <div className="text-white text-center w-3/4 mx-auto py-12">
-          <h1 className="text-2xl">
+      <article className="bg-gradient-to-b lg:bg-gradient-to-l from-blue-400 to-transparent lg:w-7/12">
+        <div className="text-center w-5/6 mx-auto py-12">
+          <h1 className="text-4xl text-white">
             You will never know when you get that one million $$ idea
           </h1>
-          <h3 className="text-md py-4">
+          <h3 className="text-sm pt-2 text-white dark:text-white">
             Create an account and keep tracks of you side projects
           </h3>
         </div>
-        <div className="center-with-flex py-4">
+        <div className="flex-center py-4">
           <LoginImage className="hidden lg:block w-3/4 h-auto" />
         </div>
       </article>

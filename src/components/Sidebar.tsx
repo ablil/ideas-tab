@@ -5,6 +5,7 @@ import { ReactComponent as LogoutIcon } from "../assets/icons/logout.svg";
 import { ReactComponent as StatsIcon } from "../assets/icons/stats.svg";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../config/firebase";
+import ThemeSwitch from "./commons/ThemeSwitch";
 
 const Sidebar = () => {
   const history = useHistory();
@@ -26,6 +27,7 @@ const Sidebar = () => {
         <StatsIcon className="navbar-icon hover:text-green-400" />
       </Link>
 
+      <ThemeSwitch className="mt-1" />
       <a
         className="navbar-link lg:mt-auto"
         title="Your profile"

@@ -16,20 +16,21 @@ const ForgetPassword = () => {
   };
 
   return isSubmitted ? (
-    <section className="h-full w-full center-with-flex">
-      <section className="auth-wrapper p-8 w-full md:w-2/4">
+    <section className="h-full w-full flex-center">
+      <section className="shadow-lg rounded-lg mt-4 mx-auto max-w-lg border-l-8 border-blue-700 bg-white p-4 w-full md:w-2/4 lg:w-1/4">
         If your email is associated with an account, you will receive a reset
         link by email
       </section>
     </section>
   ) : (
-    <section className="h-full w-full center-with-flex">
-      <section className="auth-wrapper p-4 w-full md:w-2/4 lg:w-1/4">
-        <header>Did you forgot your password ?</header>
+    <section className="h-full w-full flex-center">
+      <section className="shadow-lg rounded-lg mt-4 mx-auto max-w-lg border-l-8 border-blue-700 bg-white p-4 w-full md:w-2/4 lg:w-1/4">
+        <header className="text-blue-400">
+          Did you forgot your password ?
+        </header>
         <article>
           <input
             type="email"
-            className="form-input my-4"
             placeholder="Type your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
