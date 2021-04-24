@@ -2,6 +2,8 @@ import React, { FunctionComponent, useState } from "react";
 import Project from "../../models/Project";
 import NoData from "../commons/NoData";
 import Card from "./Card";
+import { ReactComponent as GridIcon } from "../../assets/icons/grid.svg";
+import { ReactComponent as ListIcon } from "../../assets/icons/list.svg";
 
 const Grid: FunctionComponent<{
   projects: Project[];
@@ -10,6 +12,7 @@ const Grid: FunctionComponent<{
 }> = ({ projects, onDelete, onSelect }) => {
   const [sideprojects, setSideprojects] = useState<Project[]>(projects || []);
   const [keyword, setKeyword] = useState("");
+  const [displayFormat, setDisplayFormat] = useState("gird");
 
   const filterSideprojects = () => {
     if (!keyword) return sideprojects || [];
@@ -30,7 +33,7 @@ const Grid: FunctionComponent<{
   return (
     <section className="fade-in">
       {/* search bar */}
-      <article className="w-5/6 mx-auto">
+      <article className="w-5/6 mx-auto flex">
         <input
           type="text"
           className="bg-white dark:bg-gray-800"
@@ -38,6 +41,16 @@ const Grid: FunctionComponent<{
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
         />
+        <div className="flex-center">
+          <GridIcon
+            onClick={(_) => setDisplayFormat("short")}
+            className="w-6 h-6 cursor-pointer fill-current dark:text-white  hover:text-blue-400 dark:hover:text-yellow-400"
+          />
+          <ListIcon
+            onClick={(_) => setDisplayFormat("long")}
+            className="w-6 h-6 cursor-pointer fill-current dark:text-white hover:text-blue-400 dark:hover:text-yellow-400"
+          />
+        </div>
       </article>
       {/* grid of project */}
       {projects.length === 0 ? (
@@ -46,6 +59,7 @@ const Grid: FunctionComponent<{
         <section className="flex-center flex-wrap">
           {filterSideprojects().map((p: Project) => (
             <Card
+              dispalyFormat={displayFormat}
               key={p.id}
               project={p}
               onSelect={onSelect}
