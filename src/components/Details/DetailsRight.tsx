@@ -1,4 +1,4 @@
-import { useState, FunctionComponent, useRef} from "react";
+import { useState, FunctionComponent, useRef } from "react";
 import Project from "../../models/Project";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
@@ -46,14 +46,12 @@ const DetailsRight: FunctionComponent<{
   };
 
   return (
-    <section className="transparent p-4 rounded-lg mt-4 md:m-4 md:w-3/5">
-      <header>
-        <article className="project-details-label">
-          Keep notes for yourself
-        </article>
+    <section className="shadow-lg p-4 rounded-lg mt-4 md:m-4 md:w-3/5 bg-white dark:bg-gray-800">
+      <header className="my-2">
+        <span className="text-blue-400 dark:text-yellow-400">Keep notes for yourself</span>
         <article>
           <input
-            className="form-input"
+            className="input-with-bottom"
             type="text"
             placeholder="Filter notes ..."
             value={keyword}
@@ -65,12 +63,12 @@ const DetailsRight: FunctionComponent<{
         {notes
           .filter((note) => note.includes(keyword))
           .map((note) => (
-            <div
+            <article
               key={note}
               style={{
                 wordWrap: "break-word",
               }}
-              className="note border-l-2 border-blue-400 rounded p-1 mx-2 my-3"
+              className="note border-l-2 border-blue-400 dark:border-yellow-400  p-1 mx-2 my-3"
             >
               <div dangerouslySetInnerHTML={{ __html: note }}></div>
               <span
@@ -85,13 +83,13 @@ const DetailsRight: FunctionComponent<{
               >
                 Edit
               </span>
-            </div>
+            </article>
           ))}
       </article>
-      <article>
+      <article className="text-gray-900">
         <CKEditor
           ref={editorRef}
-          className="block bg-gray-900 rounded w-full p-2 outline-none"
+          className="block rounded w-full p-2 outline-none"
           editor={ClassicEditor}
           data={note}
           onChange={(event: any, editor: any) => {

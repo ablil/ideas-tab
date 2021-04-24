@@ -6,11 +6,11 @@ const Plus: FunctionComponent<{
 }> = ({ onClick }) => {
   return (
     <div
-      className="plus w-12 h-12 bg-gray-50 rounded-full cursor-pointer"
+      className="plus w-12 h-12 bg-gray-50 border-blue-400 flex-center border rounded-full cursor-pointer"
       title="Add"
       onClick={onClick}
     >
-      <PlusIcon className="text-blue-800" />
+      <PlusIcon className="text-blue-800 w-6 h-6 flex-center" />
     </div>
   );
 };

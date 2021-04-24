@@ -97,7 +97,7 @@ const Profile = () => {
   return loading ? (
     <LoadingPage />
   ) : (
-    <section className="fade-in text-center text-gray-50 md:min-w-max">
+    <section className="fade-in shadow pt-4 md:rounded-lg text-center md:w-3/5 lg:w-2/5 mx-auto bg-white  dark:bg-gray-800">
       <article className="text-xl text-bold">
         You are now connected as <span className="text-2xl ">{user.email}</span>
       </article>
@@ -108,41 +108,35 @@ const Profile = () => {
           {msg}
         </article>
       )}
-      <section className="w-full lg:w-2/4 mx-auto transparent">
-        <article className="py-4 px-12">
-          <label className="block small-text text-gray-200" htmlFor="password">
+      <section className="w-full mx-auto ">
+        <article className="py-1 px-12">
+          <label
+            className="text-blue-400 dark:text-yellow-400"
+            htmlFor="password"
+          >
             Current Password
           </label>
-          <input
-            id="password"
-            className="form-input"
-            type="password"
-            ref={oldRef}
-          />
+          <input id="password" type="password" ref={oldRef} />
         </article>
-        <article className="py-4 px-12">
-          <label className="block small-text text-gray-200" htmlFor="password">
+        <article className="py-1 px-12">
+          <label
+            className="text-blue-400 dark:text-yellow-400"
+            htmlFor="password"
+          >
             New Password
           </label>
-          <input
-            id="password"
-            className="form-input"
-            type="password"
-            ref={newRef}
-          />
+          <input id="password" type="password" ref={newRef} />
         </article>
-        <article className="py-4 px-12">
-          <label className="block small-text text-gray-200" htmlFor="password">
+        <article className="py-1 px-12">
+          <label
+            className="text-blue-400 dark:text-yellow-400"
+            htmlFor="password"
+          >
             Retype New Password
           </label>
-          <input
-            id="password"
-            className="form-input"
-            type="password"
-            ref={retypeRef}
-          />
+          <input id="password" type="password" ref={retypeRef} />
         </article>
-        <article className="py-4 px-12">
+        <article className="py-1 px-12">
           <button
             type="submit"
             className="btn w-3/4 btn-blue"
@@ -160,7 +154,7 @@ const Profile = () => {
           >
             {deleting ? "Deleting ..." : "Delete My Account"}
           </button>
-          <p className="text-red-300 text-sm  py-1">
+          <p className="text-red-400 text-sm  py-1">
             If you delete your account, you will lose all your data
           </p>
         </article>

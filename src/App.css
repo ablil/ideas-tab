@@ -1,165 +1,168 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* 
+  @apply basic style
+  @apply basic style on hover
+
+  @apply basic style on dark mode
+  @apply basic style on dark mode and hover
+*/
 
 @layer base {
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  @keyframes fade-out {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-
-  .fade-in {
-    animation-name: fade-in;
-    animation-duration: .4s;
-  }
-  .fade-out {
-    animation-name: fade-out;
-    animation-duration: .4s;
-  }
-
   body,
   html {
-    @apply bg-gray-900 w-full h-full text-gray-50;
-    background-image: url('./assets/images/sahara-night.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-
-
-    --ck-color-base-background: rgb(17, 24, 39);
+    min-height: 100vh;
+    height: min-content;
+    width: 100%;
+    @apply bg-gray-50 text-gray-900;
+    @apply dark:bg-gray-900 dark:text-gray-50;
   }
 
+  h1 {
+    @apply font-semibold text-gray-900;
+    @apply dark:text-gray-50;
+  }
+  h2 {
+    @apply text-gray-900;
+    @apply dark:text-gray-50;
+  }
+  h3 {
+    @apply text-gray-500 font-medium text-sm;
+    @apply dark:text-gray-400;
+  }
+  label,
+  span {
+    @apply font-bold capitalize text-xs py-2;
+  }
+  input,
+  textarea {
+    @apply block my-2 p-2 w-full;
+    @apply rounded-lg outline-none;
+    @apply bg-transparent border-2 border-gray-200;
+    @apply dark:border-transparent dark:bg-gray-700; 
+  }
   input:invalid {
-    background: red;
+    border-color: #f87171;
+  }
+  input::placeholder {
+    @apply text-sm;
+  }
+  a {
+    @apply text-gray-500 underline text-sm px-1;
+    @apply hover:text-gray-700;
+
+    @apply dark:text-gray-300;
+    @apply dark:hover:text-gray-100;
   }
   .App,
   #root {
-    height: 100%;
-    font-family: Monteserrat, 'sans-serif';
-    font-weight: 500;
-  }
-  .bg-image {
-    /* darken the background image */
-    background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-
     min-height: 100vh;
-  }
-  .transparent {
-    background: rgba(0, 0, 0, 0.5);
-  }
-
-  .badge {
-    @apply group-hover:bg-blue-200 group-hover:text-gray-900 p-1 m-1 bg-gray-600 text-sm rounded truncate;
-  }
-
-  .small-text {
-    @apply text-xs uppercase;
-  }
-
-  .small-link {
-    @apply  underline text-gray-50 text-xs opacity-50 cursor-pointer tracking-wide;
-  }
-
-  .btn {
-    @apply border-2 px-6 py-2  mx-auto block transition-colors duration-300 cursor-pointer;
-  }
-  .btn-blue {
-    @apply btn border-blue-400 hover:bg-blue-400 hover:text-black;
-  }
-  .btn-red {
-    @apply btn border-red-400 hover:bg-red-400 hover:text-black;
-  }
-
-  .form-input {
-    @apply outline-none block border-b-2 border-blue-400 bg-transparent p-2 text-white w-full;
-  }
-
-  .center-with-flex {
-    @apply flex justify-center items-center;
-  }
-
-  .card {
-    @apply p-4 justify-center rounded shadow w-80 h-32 transparent transition-colors duration-300;
-  }
-
-  .project-details-field {
-    @apply text-gray-50 px-3 py-2;
-  }
-  .project-details-label {
-    @apply text-sm  text-blue-300 capitalize px-2;
-  }
-  .project-details-input {
-    @apply block bg-transparent transition-colors duration-300 hover:bg-gray-900 rounded w-full p-2 outline-none form-input;
-  }
-  .navbar {
-    @apply fixed w-full lg:w-14 h-12 lg:h-full bg-gradient-to-r lg:bg-gradient-to-b  from-gray-900 to-gray-400 py-2 flex items-center lg:flex-col z-10;
-  }
-  .navbar-link {
-    @apply rounded mx-auto my-2 w-12 h-12 center-with-flex cursor-pointer;
-  }
-  .navbar-icon {
-    @apply w-5/6 text-gray-200 text-opacity-50 hover:text-blue-400;
+    font-family: "Nunito", sans-serif;
   }
 
   #project-details-left {
     height: max-content;
+  }
+
+  svg {
+    @apply w-6 h-6 inline-block mx-2;
+  }
+
+  /*
+    Set the color of the icon
+  */
+  svg#loading path,
+  svg#loading rect {
+    fill: rgba(96, 165, 250, var(--tw-bg-opacity));
+  }
+}
+
+@layer utilities {
+  .hint {
+    @apply text-xs text-gray-600;
+
+    @apply dark:text-gray-400;
+  }
+  .hint::before {
+    content: "Hint: ";
+    font-weight: bold;
+  }
+  .input-with-bottom {
+    /* style inherited from base style, remove only unecessary */
+    @apply border-t-0 border-l-0 border-r-0 rounded-none;
+  }
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+  .fade-in {
+    animation-name: fade-in;
+    animation-duration: 0.4s;
+  }
+  .fade-out {
+    animation-name: fade-out;
+    animation-duration: 0.4s;
+  }
+  .input-wrapper {
+    @apply px-3 py-2 text-gray-700;
+    @apply dark:text-gray-50;
+  }
+}
+
+@layer components {
+  .card {
+    @apply p-4 justify-center bg-white rounded shadow w-80 h-32 transition-colors duration-300;
+    @apply hover:bg-blue-100;
+    @apply dark:bg-gray-800 dark:text-gray-50;
+    @apply dark:hover:bg-gray-700;
+  }
+
+  .badge {
+    @apply p-1 m-1 text-sm rounded truncate bg-blue-400 text-white;
+    @apply dark:bg-yellow-400 dark:text-gray-900;
+  }
+  .btn {
+    @apply rounded-lg border-2 px-6 py-2  mx-auto block transition-colors duration-300 cursor-pointer;
+  }
+  .btn-blue {
+    @apply btn border-blue-400;
+    @apply hover:bg-blue-400 hover:text-black;
+  }
+  .btn-red {
+    @apply btn border-red-400;
+    @apply hover:bg-red-400 hover:text-black;
   }
   .plus {
     position: fixed;
     left: 95%;
     bottom: 1.5rem;
   }
+  .navbar {
+    @apply fixed w-full lg:w-14 h-12 lg:h-full py-2 flex items-center lg:flex-col z-10;
+  }
+  .navbar-link {
+    @apply rounded mx-auto my-2 w-12 h-12 flex-center cursor-pointer;
+  }
+  .navbar-icon {
+    @apply w-5/6 text-gray-700 dark:text-gray-300 hover:text-blue-400;
+  }
+}
 
-  .loader{
-    margin: 0 0 2em;
-    height: 100px;
-    width: 20%;
-    text-align: center;
-    padding: 1em;
-    margin: 0 auto 1em;
-    display: inline-block;
-    vertical-align: top;
+@keyframes fade-in {
+  from {
+    opacity: 0;
   }
-  
-  /*
-    Set the color of the icon
-  */
-  svg#loading path,
-  svg#loading rect{
-    fill: rgba(96, 165, 250, var(--tw-bg-opacity));
+  to {
+    opacity: 1;
   }
-  
-  .hint {
-    @apply text-xs text-gray-200;
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
   }
-  .hint::before {
-    content: 'Hint: ';
-    font-weight: bold;
+  to {
+    opacity: 0;
   }
-  .auth-link {
-    @apply px-2 underline text-sm text-gray-100 hover:text-gray-300;
-  }
-  .auth-wrapper {
-    @apply transparent shadow rounded mt-4 mx-auto text-white max-w-lg border-l-8 border-blue-400;
-  }
-
 }

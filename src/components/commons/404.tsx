@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react'
 
 const NotFound: FunctionComponent = () => {
   return (
-    <div className="wrapper w-full h-full text-gray-900 center-with-flex">
+    <div className="wrapper w-full h-full text-gray-900 flex-center">
       <div className="container w-80 text-center">
         <div className="paper w-3/4 h-40 bg-gray-50 mx-auto rounded-t">
           <div className="animate-pulse text-4xl tracking-widest py-2 ">

@@ -24,7 +24,7 @@ const ThirdPartyAuthProviders: FunctionComponent<{
       <article className="flex justify-center items-center text-gray-50 py-4">
         <GoogleIcon
           onClick={(_) => onAuthenticate(googleProvider)}
-          className="mx-2 w-8 h-8 fill-current hover:text-red-400 cursor-pointer"
+          className="mx-2 w-8 h-8 fill-current text-red-400 dark:text-gray-50 cursor-pointer"
         />
       </article>
     </footer>
