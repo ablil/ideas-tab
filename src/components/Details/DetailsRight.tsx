@@ -98,7 +98,7 @@ const DetailsRight: FunctionComponent<{
         />
         <button
           onClick={onUpdateNotes}
-          className="btn btn-blue m-1 w-full md:w-2/4 mx-auto"
+          className="btn btn-blue dark:text-white m-1 w-full md:w-2/4 mx-auto"
         >
           Add
         </button>
