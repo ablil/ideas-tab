@@ -52,7 +52,7 @@ const Card: FunctionComponent<{
             )}
           </article>
           {/* delete project */}
-          <article className="w-1/4 ml-auto" title="Delete project idea">
+          <article className="w-1/4 ml-auto duration-300 opacity-0 group-hover:opacity-100" title="Delete project idea">
             <TrashIcon
               onClick={(e) => {
                 e.stopPropagation();

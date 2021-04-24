@@ -2,6 +2,8 @@ import { useState, FunctionComponent, useRef } from "react";
 import Project from "../../models/Project";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { ReactComponent as DeleteIcon } from "../../assets/icons/trash.svg";
+import { ReactComponent as EditIcon } from "../../assets/icons/edit.svg";
 
 const DetailsRight: FunctionComponent<{
   project: Project;
@@ -48,7 +50,9 @@ const DetailsRight: FunctionComponent<{
   return (
     <section className="shadow-lg p-4 rounded-lg mt-4 md:m-4 md:w-3/5 bg-white dark:bg-gray-800">
       <header className="my-2">
-        <span className="text-blue-400 dark:text-yellow-400">Keep notes for yourself</span>
+        <span className="text-blue-400 dark:text-yellow-400">
+          Keep notes for yourself
+        </span>
         <article>
           <input
             className="input-with-bottom"
@@ -68,21 +72,22 @@ const DetailsRight: FunctionComponent<{
               style={{
                 wordWrap: "break-word",
               }}
-              className="note border-l-2 border-blue-400 dark:border-yellow-400  p-1 mx-2 my-3"
+              className="group note border-l-2 flex items-center border-blue-400 dark:border-yellow-400  p-1 mx-2 my-3"
             >
-              <div dangerouslySetInnerHTML={{ __html: note }}></div>
-              <span
-                className="px-1 text-red-400 text-xs cursor-pointer  underline"
-                onClick={(_) => onDeleteNote(note)}
-              >
-                Delete
-              </span>
-              <span
-                onClick={(_) => onEditNote(note)}
-                className="px-1 text-blue-400 text-xs cursor-pointer underline"
-              >
-                Edit
-              </span>
+              <div
+                className="w-10/12"
+                dangerouslySetInnerHTML={{ __html: note }}
+              ></div>
+              <div className="w-2/12 flex-center opacity-0 group-hover:opacity-100 duration-300">
+                <DeleteIcon
+                  className="w-5 h-5 text-red-400 cursor-pointer"
+                  onClick={(_) => onDeleteNote(note)}
+                />
+                <EditIcon
+                  className="w-5 h-5 text-blue-400 cursor-pointer"
+                  onClick={(_) => onEditNote(note)}
+                />
+              </div>
             </article>
           ))}
       </article>
