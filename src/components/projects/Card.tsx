@@ -1,16 +1,18 @@
 import React, { FunctionComponent } from "react";
 import { ReactComponent as TrashIcon } from "../../assets/icons/trash.svg";
-import { ReactComponent as ComputerIcon } from "../../assets/icons/computer.svg";
 import Project from "../../models/Project";
 
 const Card: FunctionComponent<{
+  dispalyFormat?: string;
   project: Project;
   onSelect: (id: string) => void;
   onRemove: (id: string) => void;
-}> = ({ project, onSelect, onRemove }) => {
+}> = ({ dispalyFormat: displayFormat, project, onSelect, onRemove }) => {
   return (
     <section
-      className="w-80 h-32 m-4 mb-8 cursor-pointer"
+      className={`w-80 h-32 m-4 mb-8 cursor-pointer ${
+        displayFormat === "long" ? "w-full" : "w-80"
+      }`}
       onClick={(_) => onSelect(project.id)}
     >
       <section className="card group ">
@@ -52,7 +54,10 @@ const Card: FunctionComponent<{
             )}
           </article>
           {/* delete project */}
-          <article className="w-1/4 ml-auto" title="Delete project idea">
+          <article
+            className="w-1/4 ml-auto duration-300 opacity-0 group-hover:opacity-100"
+            title="Delete project idea"
+          >
             <TrashIcon
               onClick={(e) => {
                 e.stopPropagation();
@@ -64,8 +69,12 @@ const Card: FunctionComponent<{
         </footer>
       </section>
       {/* card footer */}
-      <div className="mx-auto w-72 h-2 rounded-b bg-gray-100 dark:bg-gray-500 shadow"></div>
-      <div className="mx-auto w-64 h-2 rounded-b bg-gray-300 dark:bg-gray-700 shadow"></div>
+      {displayFormat === "short" && (
+        <div>
+          <div className="mx-auto w-11/12 h-2 rounded-b bg-gray-100 dark:bg-gray-500 shadow"></div>
+          <div className="mx-auto w-10/12 h-2 rounded-b bg-gray-300 dark:bg-gray-700 shadow"></div>
+        </div>
+      )}
     </section>
   );
 };

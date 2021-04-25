@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import Project from "../../models/Project";
 import InputModal from "../commons/InputModal";
+import { ReactComponent as TrashIcon } from "../../assets/icons/trash.svg";
 
 const DetailsLeft: FunctionComponent<{
   project: Project;
@@ -135,7 +136,9 @@ const DetailsLeft: FunctionComponent<{
         />
       </article>
       <article className="input-wrapper">
-        <label className="text-blue-400 dark:text-yellow-400">description</label>
+        <label className="text-blue-400 dark:text-yellow-400">
+          description
+        </label>
         <textarea
           value={description}
           placeholder="N/A"
@@ -167,25 +170,26 @@ const DetailsLeft: FunctionComponent<{
 
       <article className="input-wrapper">
         <label className="text-blue-400 dark:text-yellow-400">
-          Related links <a onClick={(_) => setLinkModal(true)}>add link</a>
+          Related links{" "}
+          <a className="cursor-pointer" onClick={(_) => setLinkModal(true)}>
+            add link
+          </a>
         </label>
         <ul className="list-none">
           {links.map((link) => (
-            <li className="underline px-2" key={link}>
+            <li className="underline px-2 flex items-center group" key={link}>
+              <TrashIcon
+                className="w-5 h-5 text-red-400 opacity-0 group-hover:opacity-100 cursor-pointer duration-300"
+                onClick={(_) => onDeleteLink(link)}
+              />
               <a
-                className="overflow-ellipsis text-base"
+                className="overflow-ellipsis text-base block w-10/12"
                 href={link}
                 target="_blank"
                 rel="noreferrer"
               >
                 {link}
               </a>
-              <span
-                onClick={(_) => onDeleteLink(link)}
-                className="px-2 text-xs text-red-400 underline cursor-pointer"
-              >
-                Delete
-              </span>
             </li>
           ))}
         </ul>
