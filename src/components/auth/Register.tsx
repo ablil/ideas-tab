@@ -4,6 +4,9 @@ import { auth } from "../../config/firebase";
 import { ReactComponent as LoginImage } from "../../assets/images/dev-productivity.svg";
 import ThirdPartyAuthProviders from "./ThirdPartyAuthProviders";
 
+import Project from "../../models/Project";
+import firebase from "firebase";
+
 const Register = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -14,6 +17,30 @@ const Register = () => {
 
   const history = useHistory();
 
+  const createExampleProject = (userId: string) => {
+    const projectExample: Project = {
+      id: "3x4mpl3pr0j3ct",
+      name: "My amazing idea",
+      description: "This is just an example of proejct idea, you may delete it",
+      technologies: ["Python", "React", "Flutter"],
+      repository: "https://github.com/ablil/ideas-tab",
+      links: ["https://github.com", "https://github.com/ablil"],
+      notes: [
+        "You may also keep notes for yoursefl, delete them or edit them",
+        "You can save as much as you want in this section",
+        "You have three section in your sidebar, your project, your profile and basic statistics",
+      ],
+      created: new Date(),
+      lastModified: new Date(),
+    };
+    firebase
+      .firestore()
+      .collection(userId)
+      .doc(projectExample.id)
+      .set(projectExample)
+      .then((_) => console.log("project created successfully"))
+      .catch((_) => console.log("failed to create the project"));
+  };
   const onRegister = (e: any) => {
     e.preventDefault();
     setError("");
@@ -32,10 +59,13 @@ const Register = () => {
     setLoading(true);
     auth
       .createUserWithEmailAndPassword(credentials.email, credentials.password)
-      .then((_) => history.push("/"))
+      .then((creds: firebase.auth.UserCredential) => {
+        createExampleProject(creds.user?.uid!);
+        history.push("/");
+      })
       .catch((err) => {
         console.error(err);
-        setError("Failed to create register, try later");
+        setError("Failed to register, try later");
         setLoading(false);
       });
   };
