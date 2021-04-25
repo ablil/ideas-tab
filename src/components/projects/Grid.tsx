@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useState } from "react";
 import Project from "../../models/Project";
-import NoData from "../commons/NoData";
 import Card from "./Card";
 import { ReactComponent as GridIcon } from "../../assets/icons/grid.svg";
 import { ReactComponent as ListIcon } from "../../assets/icons/list.svg";
@@ -54,7 +53,12 @@ const Grid: FunctionComponent<{
       </article>
       {/* grid of project */}
       {projects.length === 0 ? (
-        <NoData />
+        <div className="w-full h-full p-4 text-center">
+          <div>Oops! You dont have any item</div>
+          <div className="text-blue-400 dark:text-yellow-400 text-2xl">
+            Start by creating a new one
+          </div>
+        </div>
       ) : (
         <section className="flex-center flex-wrap">
           {filterSideprojects().map((p: Project) => (

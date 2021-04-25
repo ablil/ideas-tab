@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import { ReactComponent as TrashIcon } from "../../assets/icons/trash.svg";
-import { ReactComponent as ComputerIcon } from "../../assets/icons/computer.svg";
 import Project from "../../models/Project";
 
 const Card: FunctionComponent<{
