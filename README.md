@@ -1,33 +1,66 @@
-# Ideas-tab
+# Ideas-tab :computer:
 
-Ideas-tab is a miniplatfrom to help you keep track of your side projects ideas,
-save notes for yourself and much more ....
+All your development project in one place.
 
-![demo img](./.readme/demo.png)
+Ideas-tab is a plateform where you can save any project idea that comes to you, or any inspiration you have.
 
-## Features
+It allow mutliple features, such as saving notes, technologies stack, related links ...
 
-Ideas-tab allows you to:
-* specify project name and repository
-* specify technologies used on the projects
-* save notes for yourself
-* save related link to your project ideas
+_In case you are wondering, **dark mode** is supported :wink:_
 
-And more features to come.
+## 1. Description
 
-## Build & Installation
+### 1.1. Projects
 
-Clone the project, build 
+Each project idea in **ideas-tab** is defined by multiple properties:
+
+- **name**: your project name.
+- **description**: short description so you don't forget what it is about.
+- **repository**: You could add you project repository link if you have created one.
+- **technologes**: collection of technologies you will use to realize this project.
+- **related link**: any links tha you find usefull and you want to keep.
+- **notes**: you can save not for yourself, or explain something in detail.
+
+### 1.2. Account and privacy
+
+In order to regsiter, only an email is required, and you could also use a temporary email service if you want to.
+The email is the only way to references your account with your data.
+
+**No additional information is required to register**
+
+Once you delete your account, all your data will be deleted immediately and could not be recovered.
+
+### 1.3. Statistics
+
+For the time being, only the total number of project and technology stack is showen.
+
+## 2. Development
+
+To run locally:
 
 ```
-git clone https://github.com/ablil/ideas-tab
-cd ideas-tab
-yarn
-yarn build
+$ git clone https://github.com/ablil/ideas-tab
+$ cd ideas-tab
+$ yarn
+$ yarn start
 ```
-## Contribution
 
-To contibute to this project feel free to create a pull request or contact me.
+Check [here](https://github.com/ablil/ideas-tab/blob/master/CONTRIBUTING.md) for more information.
 
-## Lisence
-Ideas-tab is licensed under the Apache License, Version 2.0. See LICENSE for the full license text.
+To be addedd:
+
+- [ ] Progressive web app
+- [ ] Mobile web app (flutter)
+- [ ] Upload attachment to notes
+- [ ] Export / import data
+- [ ] Impove statistics UI
+
+## 4. Contributing
+
+This is an opensource project, but I recommend creating an **issue** or a **pull request**.
+
+Please check [CONTIRBUTING.md](https://github.com/ablil/ideas-tab/blob/master/CONTRIBUTING.md) for more informations.
+
+## 5. Lisence
+
+This project in under [License](https://github.com/ablil/ideas-tab/blob/master/LICENSE)
