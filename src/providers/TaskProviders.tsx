@@ -25,7 +25,7 @@ const TaskProvider: FC<{ children: any }> = ({ children }) => {
     firebase.firestore().collection(collectionName)
   );
 
-  const addTask = (task: Task)  => {
+  const addTask = (task: Task) => {
     firebase
       .firestore()
       .collection(collectionName)
@@ -34,10 +34,10 @@ const TaskProvider: FC<{ children: any }> = ({ children }) => {
       .then((_) => tasks?.push(task))
       .then((_) => console.log("task has been added to queue"))
       .catch((err) => console.error(err));
-  }
-  const removeTask = (id: string)  => {
+  };
+  const removeTask = (id: string) => {
     firebase.firestore().collection(collectionName).doc(id).delete();
-  }
+  };
 
   return loading ? (
     <LoadingPage />
