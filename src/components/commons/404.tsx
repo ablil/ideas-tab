@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react'
+import { FunctionComponent } from "react";
 
 const NotFound: FunctionComponent = () => {
   return (
@@ -19,7 +19,7 @@ const NotFound: FunctionComponent = () => {
         <div className="footer w-full h-2 bg-gray-50 shadow-xl"></div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default NotFound
+export default NotFound;

@@ -4,13 +4,8 @@ import LoadingPage from "../pages/LoadingPage";
 import { UserContext } from "../providers/UserProvider";
 
 const Profile = () => {
-  const {
-    loading,
-    user,
-    reauthenticate,
-    updatePassword,
-    deleteAccount,
-  } = useContext(UserContext);
+  const { loading, user, reauthenticate, updatePassword, deleteAccount } =
+    useContext(UserContext);
 
   const history = useHistory();
 

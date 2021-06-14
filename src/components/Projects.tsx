@@ -8,9 +8,8 @@ import Plus from "./commons/Plus";
 import { v4 as uuidv4 } from "uuid";
 
 const Projects = () => {
-  const { projects, createProject, removeProject } = useContext(
-    ProjectsContext
-  );
+  const { projects, createProject, removeProject } =
+    useContext(ProjectsContext);
 
   const [showmodal, setShowmodal] = useState(false);
   const histoy = useHistory();

@@ -29,13 +29,15 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "format": "prettier -w src/**/*.tsx src/**/*.ts",
+    "format": "lint-staged",
     "lint": "eslint --fix --ext .ts,.tsx src",
     "start": "craco start",
     "build": "craco build",
     "test": "craco build",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "firebase:login": "firebase login",
+    "deploy:dev": "firebase deploy --only hosting -P staging",
+    "deploy:prod": "firebase deploy --only hosting -P production"
   },
   "eslintConfig": {
     "extends": [
@@ -60,7 +62,12 @@
     "@types/react-router-dom": "^5.1.7",
     "@types/react-transition-group": "^4.4.0",
     "@types/uuid": "^8.3.0",
-    "husky": "^5.1.3",
-    "prettier": "2.2.1"
+    "firebase-tools": "^9.12.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.1"
+  },
+  "lint-staged": {
+    "**/*.+(ts|tsx)": "prettier --write"
   }
 }
