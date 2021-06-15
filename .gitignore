@@ -27,3 +27,5 @@ yarn-error.log*
 .firebase
 .env.ideas-tab
 .env.sidprojects
+.env.prod
+.env.staging
