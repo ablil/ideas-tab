@@ -1,0 +1,64 @@
+/* 
+Use this file to override some css style which does not require rebuilding the project
+*/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
+
+html,
+body {
+  min-height: 100vh;
+  height: min-content;
+  width: 100%;
+}
+input:invalid {
+  border-color: #f87171;
+}
+.App,
+#root {
+  min-height: 100vh;
+  font-family: "Nunito", sans-serif;
+}
+
+#project-details-left {
+  height: max-content;
+}
+
+/*
+    Set the color of the icon
+  */
+svg#loading path,
+svg#loading rect {
+  fill: rgba(96, 165, 250, var(--tw-bg-opacity));
+}
+.hint::before {
+  content: "Hint: ";
+  font-weight: bold;
+}
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: 0.4s;
+}
+.fade-out {
+  animation-name: fade-out;
+  animation-duration: 0.4s;
+}
+.plus {
+  position: fixed;
+  left: 95%;
+  bottom: 1.5rem;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

@@ -32,9 +32,7 @@ const Queue = () => {
   return (
     <section className="flex flex-col md:flex-row w-full h-full">
       <section className="w-full p-3 md:w-2/6">
-        <h1 className="text-blue-400 dark:text-yellow-400">
-          Add new item to the Queue
-        </h1>
+        <h1 className="title">Add new item to the Queue</h1>
         <textarea
           value={task}
           onChange={(e) => setTask(e.target.value)}
@@ -52,10 +50,8 @@ const Queue = () => {
         </article>
       </section>
 
-      <section className="w-full md:w-4/6 p-4 md:m-4 shadow p-4 bg-white  dark:bg-gray-800">
-        <article className="text-blue-400 dark:text-yellow-400">
-          Total: {tasks ? tasks.length : 0}
-        </article>
+      <section className="w-full md:w-4/6 md:m-4 shadow p-4 ground">
+        <article className="title">Total: {tasks ? tasks.length : 0}</article>
         <article className="fade-in divide-y-2 divide-blue-900 dark:divide-yellow-400">
           {tasks!.map((task) => (
             <article className="my-2 group flex" key={task.id}>

@@ -105,10 +105,10 @@ const DetailsLeft: FunctionComponent<{
   return (
     <section
       id="project-details-left"
-      className="shadow-lg rounded-lg py-4 md:m-4 md:w-2/5 md:self-start md:sticky md:top-0 bg-white dark:bg-gray-800"
+      className="shadow-lg rounded-lg py-4 md:m-4 md:w-2/5 md:self-start md:sticky md:top-0 ground"
     >
       <article className="input-wrapper">
-        <label className="text-blue-400 dark:text-yellow-400">name</label>
+        <label className="title">name</label>
         <input
           type="text"
           minLength={6}
@@ -121,7 +121,7 @@ const DetailsLeft: FunctionComponent<{
         />
       </article>
       <article className="input-wrapper">
-        <label className="text-blue-400 dark:text-yellow-400">
+        <label className="title">
           repository
           <a href={repository || "#"} target="_blank" rel="noreferrer">
             visit link
@@ -136,9 +136,7 @@ const DetailsLeft: FunctionComponent<{
         />
       </article>
       <article className="input-wrapper">
-        <label className="text-blue-400 dark:text-yellow-400">
-          description
-        </label>
+        <label className="title">description</label>
         <textarea
           value={description}
           placeholder="N/A"
@@ -147,7 +145,7 @@ const DetailsLeft: FunctionComponent<{
         ></textarea>
       </article>
       <article className="input-wrapper">
-        <label className="text-blue-400 dark:text-yellow-400">
+        <label className="title">
           Technologies <a onClick={(_) => setTechModal(true)}>add technology</a>
         </label>
         <div className="flex flex-wrap">
@@ -169,7 +167,7 @@ const DetailsLeft: FunctionComponent<{
       </article>
 
       <article className="input-wrapper">
-        <label className="text-blue-400 dark:text-yellow-400">
+        <label className="title">
           Related links{" "}
           <a className="cursor-pointer" onClick={(_) => setLinkModal(true)}>
             add link

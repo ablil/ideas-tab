@@ -35,7 +35,7 @@ const Grid: FunctionComponent<{
       <article className="w-5/6 mx-auto flex">
         <input
           type="text"
-          className="bg-white dark:bg-gray-800"
+          className="ground"
           placeholder="Filter by name or technology ..."
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
@@ -55,9 +55,7 @@ const Grid: FunctionComponent<{
       {projects.length === 0 ? (
         <div className="w-full h-full p-4 text-center">
           <div>Oops! You dont have any item</div>
-          <div className="text-blue-400 dark:text-yellow-400 text-2xl">
-            Start by creating a new one
-          </div>
+          <div className="title text-2xl">Start by creating a new one</div>
         </div>
       ) : (
         <section className="flex-center flex-wrap">

@@ -48,11 +48,9 @@ const DetailsRight: FunctionComponent<{
   };
 
   return (
-    <section className="shadow-lg p-4 rounded-lg mt-4 md:m-4 md:w-3/5 bg-white dark:bg-gray-800">
+    <section className="shadow-lg p-4 rounded-lg mt-4 md:m-4 md:w-3/5 ground">
       <header className="my-2">
-        <span className="text-blue-400 dark:text-yellow-400">
-          Keep notes for yourself
-        </span>
+        <span className="title">Keep notes for yourself</span>
         <article>
           <input
             className="input-with-bottom"

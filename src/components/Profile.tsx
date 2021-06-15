@@ -92,7 +92,7 @@ const Profile = () => {
   return loading ? (
     <LoadingPage />
   ) : (
-    <section className="fade-in shadow pt-4 md:rounded-lg text-center md:w-3/5 lg:w-2/5 mx-auto bg-white  dark:bg-gray-800">
+    <section className="fade-in shadow pt-4 md:rounded-lg text-center md:w-3/5 lg:w-2/5 mx-auto ground">
       <article className="text-xl text-bold">
         You are now connected as <span className="text-2xl ">{user.email}</span>
       </article>
@@ -105,28 +105,19 @@ const Profile = () => {
       )}
       <section className="w-full mx-auto ">
         <article className="py-1 px-12">
-          <label
-            className="text-blue-400 dark:text-yellow-400"
-            htmlFor="password"
-          >
+          <label className="title" htmlFor="password">
             Current Password
           </label>
           <input id="password" type="password" ref={oldRef} />
         </article>
         <article className="py-1 px-12">
-          <label
-            className="text-blue-400 dark:text-yellow-400"
-            htmlFor="password"
-          >
+          <label className="title" htmlFor="password">
             New Password
           </label>
           <input id="password" type="password" ref={newRef} />
         </article>
         <article className="py-1 px-12">
-          <label
-            className="text-blue-400 dark:text-yellow-400"
-            htmlFor="password"
-          >
+          <label className="title" htmlFor="password">
             Retype New Password
           </label>
           <input id="password" type="password" ref={retypeRef} />

@@ -62,11 +62,11 @@ const Stats = () => {
 
   return (
     <section className="w-full h-full md:p-4">
-      <header className="shadow mx-auto bg-white dark:bg-gray-800 text-blue-400 dark:text-yellow-400 text-2xl py-4 text-center lg:w-2/4 rounded dark:border-gray-50">
+      <header className="shadow mx-auto ground title text-2xl py-4 text-center lg:w-2/4 rounded dark:border-gray-50">
         Total number of projects : {projects?.length || 0}{" "}
       </header>
       {Object.keys(technologies).length != 0 ? (
-        <section className="p-4 dark:border-gray-50 bg-white dark:bg-gray-800 shadow rounded-lg mx-auto mt-2 lg:w-4/6">
+        <section className="p-4 dark:border-gray-50 ground shadow rounded-lg mx-auto mt-2 lg:w-4/6">
           <h1 className="text-center py-2">
             Check what technologies your are using the most.
           </h1>
@@ -79,7 +79,7 @@ const Stats = () => {
           ></canvas>
         </section>
       ) : (
-        <section className="p-4 border-l-2 border-gray-800 dark:border-gray-50 bg-white dark:bg-gray-800 shadow rounded-lg mx-auto mt-2 lg:w-4/6">
+        <section className="p-4 border-l-2 border-gray-800 dark:border-gray-50 ground shadow rounded-lg mx-auto mt-2 lg:w-4/6">
           <h1 className="text-center">
             It seems you did not specify any technology on your project
           </h1>

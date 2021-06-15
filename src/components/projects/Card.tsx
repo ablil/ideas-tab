@@ -17,9 +17,7 @@ const Card: FunctionComponent<{
     >
       <section className="card group ">
         <section className="">
-          <h1 className="truncate text-blue-400 dark:text-yellow-400">
-            {project.name}
-          </h1>
+          <h1 className="truncate title">{project.name}</h1>
           <p
             title={project.description ? project.description : "n/a"}
             className="truncate text-xs opacity-50 group-hover:opacity-70 text-md"
