@@ -22,7 +22,10 @@ const TaskProvider: FC<{ children: any }> = ({ children }) => {
   const [user] = useAuthState(auth);
   const [collectionName] = useState(`${user.uid}-tasks`);
   const [tasks, loading] = useCollectionData<Task>(
-    firebase.firestore().collection(collectionName)
+    firebase
+      .firestore()
+      .collection(collectionName)
+      .orderBy("lastModified", "desc")
   );
 
   const addTask = (task: Task) => {

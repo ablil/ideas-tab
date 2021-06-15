@@ -61,9 +61,13 @@ const Queue = () => {
             <article className="my-2 group flex" key={task.id}>
               <article>
                 <h1>{task.content}</h1>
-                <p className="text-xs">created: {task.created.toString()}</p>
                 <p className="text-xs">
-                  last modified: {task.lastModified.toString()}
+                  {/* @ts-ignore */}
+                  created: {task.created.toDate().toLocaleString()}
+                </p>
+                <p className="text-xs">
+                  {/* @ts-ignore */}
+                  last modified: {task.lastModified.toDate().toLocaleString()}
                 </p>
               </article>
               <div className="w-2/12 ml-auto flex-center opacity-0 group-hover:opacity-100 duration-300">
