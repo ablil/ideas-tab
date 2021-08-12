@@ -8,7 +8,7 @@ const GoBack: FunctionComponent = () => {
     <section className="flex items-center text-blue-400 hover:text-blue-500">
       <p
         onClick={(_) => history.goBack()}
-        className="text-sm px-1 text-white bg-blue-400 dark:bg-yellow-400 flex items-center cursor-pointer hover:opacity-100 opacity-80"
+        className="text-sm px-1 my-4 text-white bg-blue-400 dark:bg-yellow-400 flex items-center cursor-pointer hover:opacity-100 opacity-80"
       >
         <svg
           className="w-4 h-4"

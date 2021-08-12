@@ -39,9 +39,9 @@ const Login = () => {
   };
 
   return (
-    <section className="h-full fade-in flex flex-col lg:flex-row">
-      <article className="bg-gradient-to-r from-blue-400 to-transparent lg:w-7/12">
-        <div className="w-5/6 mx-auto py-12">
+    <section className="h-screen fade-in flex flex-col lg:flex-row lg:items-center">
+      <article className="h-full flex-center flex-col bg-gradient-to-r from-blue-400 to-transparent lg:w-7/12">
+        <div className="w-5/6 text-center py-12">
           <h1 className="text-4xl text-white">Keep tracks of your ideas</h1>
           <h3 className="text-sm pt-2 text-white dark:text-white">
             It is time to start that side project, you bought a domain name for.
@@ -51,7 +51,7 @@ const Login = () => {
           <RegisterImage className="hidden lg:block w-3/4 h-auto" />
         </div>
       </article>
-      <article className="lg:w-5/12 py-12">
+      <article className="lg:w-5/12 py-12 my-auto">
         <header className="px-12 text-2xl pt-8">
           <h1>Account Login</h1>
         </header>

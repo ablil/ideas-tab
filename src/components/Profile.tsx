@@ -92,8 +92,8 @@ const Profile = () => {
   return loading ? (
     <LoadingPage />
   ) : (
-    <section className="fade-in shadow pt-4 md:rounded-lg text-center md:w-3/5 lg:w-2/5 mx-auto ground">
-      <article className="text-xl text-bold">
+    <section className="w-96 fade-in shadow pt-4 md:rounded-lg text-center md:w-3/5 lg:w-2/5 mx-auto ground">
+      <article className="text-xl text-bold px-2">
         You are now connected as <span className="text-2xl ">{user.email}</span>
       </article>
       {msg && (

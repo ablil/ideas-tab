@@ -74,8 +74,8 @@ const Register = () => {
     setError("Failed to authenticate, try later");
   };
   return (
-    <section className="fade-in flex flex-col-reverse lg:flex-row">
-      <article className="lg:w-5/12 py-12">
+    <section className="h-screen fade-in flex flex-col-reverse lg:flex-row lg:items-center">
+      <article className="lg:w-5/12 py-12 my-auto">
         <header className="px-12 text-2xl pt-8">
           <h1>Account Registration</h1>
         </header>
@@ -128,7 +128,7 @@ const Register = () => {
         </form>
         <ThirdPartyAuthProviders onError={onThirdPartyAuthenticationError} />
       </article>
-      <article className="bg-gradient-to-b lg:bg-gradient-to-l from-blue-400 to-transparent lg:w-7/12">
+      <article className="h-full flex-center flex-col bg-gradient-to-b lg:bg-gradient-to-l from-blue-400 to-transparent lg:w-7/12">
         <div className="text-center w-5/6 mx-auto py-12">
           <h1 className="text-4xl text-white">
             You will never know when you get that one million $$ idea

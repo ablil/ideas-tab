@@ -43,7 +43,7 @@ svg#loading rect {
 }
 .plus {
   position: fixed;
-  left: 95%;
+  right: 5%;
   bottom: 1.5rem;
 }
 @keyframes fade-in {

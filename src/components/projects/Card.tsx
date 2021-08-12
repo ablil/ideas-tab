@@ -10,7 +10,7 @@ const Card: FunctionComponent<{
 }> = ({ dispalyFormat: displayFormat, project, onSelect, onRemove }) => {
   return (
     <section
-      className={`w-80 h-32 m-4 mb-8 cursor-pointer ${
+      className={`w-96 h-32 m-4 mb-8 cursor-pointer ${
         displayFormat === "long" ? "w-full" : "w-80"
       }`}
       onClick={(_) => onSelect(project.id)}

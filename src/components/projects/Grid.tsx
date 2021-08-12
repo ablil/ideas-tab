@@ -40,7 +40,7 @@ const Grid: FunctionComponent<{
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
         />
-        <div className="flex-center">
+        <div className="hidden md:flex justify-center items-center">
           <GridIcon
             onClick={(_) => setDisplayFormat("short")}
             className="w-6 h-6 cursor-pointer fill-current dark:text-white  hover:text-blue-400 dark:hover:text-yellow-400"

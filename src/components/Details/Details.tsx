@@ -24,7 +24,7 @@ const Details = () => {
       <header>
         <GoBack />
       </header>
-      <div className="w-full h-full flex flex-col md:flex-row">
+      <div className="w-full max-w-7xl mx-auto h-full flex flex-col md:flex-row">
         <DetailsLeft project={project} onUpdate={updateProject} />
         <DetailsRight project={project} onUpdate={onUpdateNotes} />
       </div>

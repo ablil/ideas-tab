@@ -24,7 +24,7 @@ const ForgetPassword = () => {
     </section>
   ) : (
     <section className="h-full w-full flex-center">
-      <section className="shadow-lg rounded-lg mt-4 mx-auto max-w-lg border-l-8 border-blue-700 bg-white p-4 w-full md:w-2/4 lg:w-1/4">
+      <section className="md:shadow-lg rounded-lg mt-4 mx-auto max-w-lg md:border-l-8 border-blue-700 bg-white p-4 w-full md:w-2/4 lg:w-1/4">
         <header className="text-blue-400">
           Did you forgot your password ?
         </header>

@@ -30,7 +30,7 @@ const Queue = () => {
   };
 
   return (
-    <section className="flex flex-col md:flex-row w-full h-full">
+    <section className="flex flex-col md:flex-row w-full max-w-7xl mx-auto h-full">
       <section className="w-full p-3 md:w-2/6">
         <h1 className="title">Add new item to the Queue</h1>
         <textarea
@@ -50,7 +50,7 @@ const Queue = () => {
         </article>
       </section>
 
-      <section className="w-full md:w-4/6 md:m-4 shadow p-4 ground">
+      <section className="w-96 mx-auto md:w-4/6 md:m-4 shadow p-4 ground">
         <article className="title">Total: {tasks ? tasks.length : 0}</article>
         <article className="fade-in divide-y-2 divide-blue-900 dark:divide-yellow-400">
           {tasks!.map((task) => (
