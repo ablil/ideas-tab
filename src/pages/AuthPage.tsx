@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import Register from "../components/auth/Register";
-import Login from "../components/auth/Login";
+import LoginPage from "../components/auth/LoginPage";
 import ForgetPassword from "../components/auth/ForgetPassword";
 
 const AuthPage = () => {
@@ -10,7 +10,7 @@ const AuthPage = () => {
   return (
     <Switch location={location}>
       <Route exact path="/login">
-        <Login />
+        <LoginPage />
       </Route>
       <Route exact path="/register">
         <Register />
