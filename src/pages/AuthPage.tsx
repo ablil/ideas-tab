@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
-import Register from "../components/auth/Register";
-import LoginPage from "../components/auth/LoginPage";
-import ForgetPassword from "../components/auth/ForgetPassword";
+import RegistrationPage from "./RegistrationPage";
+import LoginPage from "./LoginPage";
+import ForgetPassword from "../components/authentication/ForgetPassword";
 
 const AuthPage = () => {
   let location = useLocation();
@@ -13,7 +13,7 @@ const AuthPage = () => {
         <LoginPage />
       </Route>
       <Route exact path="/register">
-        <Register />
+        <RegistrationPage />
       </Route>
       <Route exact path="/reset">
         <ForgetPassword />
