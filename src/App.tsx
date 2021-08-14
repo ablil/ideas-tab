@@ -12,6 +12,7 @@ import PublicRoute from "./routes/PublicRoute";
 import RegistrationPage from "./pages/RegistrationPage";
 import ForgetPassword from "./components/authentication/ForgetPassword";
 import ProfilePage from "./components/ProfilePage";
+import TaskPage from "./pages/TaskPage";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             restricted={true}
           />
           <PrivateRoute path="/profile" component={ProfilePage} />
+          <PrivateRoute path="/queue" component={TaskPage} />
           <PrivateRoute path="/" component={HomePage} />
           <Route path="*" component={NotFound} />
         </Switch>
