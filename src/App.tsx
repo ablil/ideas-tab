@@ -6,8 +6,12 @@ import PrivateRoute from "./components/PrivateRoute";
 import Helmet from "react-helmet";
 
 import "./config/firebase";
-import AuthPage from "./pages/AuthPage";
 import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import PublicRoute from "./routes/PublicRoute";
+import RegistrationPage from "./pages/RegistrationPage";
+import ForgetPassword from "./components/authentication/ForgetPassword";
+import ProfilePage from "./components/ProfilePage";
 
 function App() {
   return (
@@ -21,11 +25,21 @@ function App() {
         />
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
       </Helmet>
+
       <Router>
         <Switch>
-          <Route exact path="/login" component={AuthPage} />
-          <Route exact path="/register" component={AuthPage} />
-          <Route exact path="/reset" component={AuthPage} />
+          <PublicRoute path="/login" component={LoginPage} restricted={true} />
+          <PublicRoute
+            path="/register"
+            component={RegistrationPage}
+            restricted={true}
+          />
+          <PublicRoute
+            path="/reset"
+            component={ForgetPassword}
+            restricted={true}
+          />
+          <PrivateRoute path="/profile" component={ProfilePage} />
           <PrivateRoute path="/" component={HomePage} />
           <Route path="*" component={NotFound} />
         </Switch>
