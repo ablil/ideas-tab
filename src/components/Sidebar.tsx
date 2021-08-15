@@ -24,6 +24,7 @@ const Sidebar = () => {
       <Link to="/profile" className="navbar-link " title="Profile">
         <UserIcon className="navbar-icon hover:text-yellow-400" />
       </Link>
+      {/* TODO: remove stats links */}
       <Link to="/stats" className="navbar-link " title="Stats">
         <StatsIcon className="navbar-icon hover:text-green-400" />
       </Link>

@@ -3,104 +3,64 @@ import Project from "../../models/Project";
 import InputModal from "../commons/InputModal";
 import { ReactComponent as TrashIcon } from "../../assets/icons/trash.svg";
 
-const DetailsLeft: FunctionComponent<{
+type Props = {
   project: Project;
-  onUpdate: (newProject: Project) => Promise<void>;
-}> = ({ project, onUpdate }) => {
-  // properties from project passed as prop
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState<string>("");
-  const [repository, setRepository] = useState<string>("");
-  const [technologies, setTechnologies] = useState<string[]>([]);
-  const [links, setLinks] = useState<string[]>([]);
+  onSave: (p: Project) => void;
+};
 
-  // is project info modified
-  const [modified, setModified] = useState(false);
+const ProjectInfo: FunctionComponent<Props> = ({ project, onSave }) => {
+  const [projectCopy, setProjectCopy] = useState<Project>(project);
+  const [isModified, setIsModified] = useState(false);
 
   const [techModal, setTechModal] = useState(false);
   const [linkModal, setLinkModal] = useState(false);
 
-  // error message
-  const [message, setMessage] = useState("");
-  const [isError, setIsError] = useState(true);
+  function handleChange(evt: any) {
+    setProjectCopy((old) => ({ ...old, [evt.target.name]: evt.target.value }));
+    setIsModified(true);
+  }
 
-  useEffect(() => {
-    onCancel();
-  }, []);
+  function removeTechnology(technology: string) {
+    setProjectCopy((old) => ({
+      ...old,
+      technologies: old.technologies.filter((t) => t !== technology),
+    }));
+    setIsModified(true);
+  }
 
-  const onChange = (updateCallback: (val: any) => void, newValue: any) => {
-    setModified(true);
-    updateCallback(newValue);
-  };
+  function removeLink(link: string) {
+    setProjectCopy((old) => ({
+      ...old,
+      links: old.links.filter((l) => l !== link),
+    }));
+    setIsModified(true);
+  }
 
-  /**
-   * Reset project state to original values
-   */
-  const onCancel = () => {
-    setName(project.name);
-    setDescription(project.description || "");
-    setRepository(project.repository || "");
-    setTechnologies(project.technologies);
-    setLinks(project.links);
-    setModified(false);
-  };
+  function addTechnology(techonlogy: string) {
+    setProjectCopy((old) => ({
+      ...old,
+      technologies: old.technologies.concat(techonlogy.split(",")),
+    }));
+    setIsModified(true);
+  }
 
-  /**
-   * Update the project state by calling the remote api
-   * @param e event
-   */
-  const updateProject = (e: any) => {
-    e.preventDefault();
-    setMessage("");
-    onUpdate({
-      id: project.id,
-      name,
-      description,
-      repository,
-      technologies,
-      links,
-      notes: project.notes,
-      created: project.created || new Date(),
-      lastModified: new Date(),
-    })
-      .then((_) => {
-        setMessage("Updated Successfully");
-        setIsError(false);
-        setModified(false);
-      })
-      .catch((err) => {
-        setMessage("Failed to update, try again");
-        setIsError(true);
-        console.error(err);
-      });
-  };
+  function addLink(link: string) {
+    setProjectCopy((old) => ({
+      ...old,
+      links: old.links.concat(link),
+    }));
+    setIsModified(true);
+  }
 
-  /**
-   * remove deleted link from list, and set state to modified
-   * @param link link
-   */
-  const onDeleteLink = (link: string) => {
-    setLinks((oldLinks) => oldLinks.filter((l) => link !== l));
-    setModified(true);
-  };
+  function saveModification() {
+    onSave(projectCopy);
+    setIsModified(false);
+  }
 
-  /**
-   * add link to list of links
-   * @param link link
-   */
-  const onAddLink = (link: string) => {
-    setLinks((oldLinks) => oldLinks.concat(link));
-    setModified(true);
-  };
-
-  /**
-   * Add technologies to list of technologies
-   * @param technologies string of technologies joined with ,
-   */
-  const onAddTechnology = (technologies: string) => {
-    setTechnologies((old) => old.concat(technologies.split(",")));
-    setModified(true);
-  };
+  function cancelModification() {
+    setProjectCopy(project);
+    setIsModified(false);
+  }
 
   return (
     <section
@@ -115,48 +75,52 @@ const DetailsLeft: FunctionComponent<{
           maxLength={60}
           required={true}
           placeholder="N/A"
-          value={name}
-          onChange={(e) => onChange(setName, e.target.value)}
-          accessKey="n"
+          name="name"
+          value={projectCopy.name}
+          onChange={handleChange}
         />
       </article>
+
       <article className="input-wrapper">
         <label className="title">
           repository
-          <a href={repository || "#"} target="_blank" rel="noreferrer">
+          <a
+            href={projectCopy.repository || "#"}
+            target="_blank"
+            rel="noreferrer"
+          >
             visit link
           </a>
         </label>
         <input
           type="url"
           placeholder="N/A"
-          value={repository}
-          onChange={(e) => onChange(setRepository, e.target.value)}
-          accessKey="r"
+          name="repository"
+          value={projectCopy.repository}
+          onChange={handleChange}
         />
       </article>
+
       <article className="input-wrapper">
         <label className="title">description</label>
         <textarea
-          value={description}
+          name="description"
+          value={projectCopy.description}
           placeholder="N/A"
-          onChange={(e) => onChange(setDescription, e.target.value)}
-          accessKey="d"
+          onChange={handleChange}
         ></textarea>
       </article>
+
       <article className="input-wrapper">
         <label className="title">
           Technologies <a onClick={(_) => setTechModal(true)}>add technology</a>
         </label>
         <div className="flex flex-wrap">
-          {technologies.map((tech) => (
+          {projectCopy.technologies.map((tech) => (
             <span
               key={tech}
               title="click to delete"
-              onClick={(_) => {
-                setTechnologies((old) => old.filter((t) => t !== tech));
-                setModified(true);
-              }}
+              onClick={(_) => removeTechnology(tech)}
               className="badge cursor-pointer hover:bg-red-400"
             >
               {tech}
@@ -168,17 +132,17 @@ const DetailsLeft: FunctionComponent<{
 
       <article className="input-wrapper">
         <label className="title">
-          Related links{" "}
+          Related links
           <a className="cursor-pointer" onClick={(_) => setLinkModal(true)}>
             add link
           </a>
         </label>
         <ul className="list-none">
-          {links.map((link) => (
+          {projectCopy.links.map((link) => (
             <li className="underline px-2 flex items-center group" key={link}>
               <TrashIcon
                 className="w-5 h-5 text-red-400 opacity-0 group-hover:opacity-100 cursor-pointer duration-300"
-                onClick={(_) => onDeleteLink(link)}
+                onClick={(_) => removeLink(link)}
               />
               <a
                 className="overflow-ellipsis text-base block w-10/12"
@@ -195,23 +159,23 @@ const DetailsLeft: FunctionComponent<{
 
       <article className="flex-center flex-col flex-wrap md:flex-row p-4">
         <button
-          onClick={updateProject}
+          onClick={saveModification}
           type="submit"
           className="btn btn-blue relative w-5/6 md:w-1/4"
-          accessKey="u"
         >
-          {modified && (
+          {isModified && (
             <span className="animate-ping absolute inline-flex h-3 w-3 -top-1 -left-1 rounded-full bg-purple-400 opacity-75"></span>
           )}
-          <u>U</u>pdate
+          update
         </button>
+
         <button
           type="reset"
-          onClick={onCancel}
+          onClick={cancelModification}
           className="btn btn-red w-5/6 md:w-1/4 m-2 md:mx-auto"
           accessKey="c"
         >
-          <u>C</u>ancel
+          cancel
         </button>
       </article>
 
@@ -231,14 +195,6 @@ const DetailsLeft: FunctionComponent<{
           {project.lastModified?.toDate().toLocaleString()}
         </p>
       </article>
-      {/* message to display for the user */}
-      {message && (
-        <article className="py-2 text-center">
-          <p className={isError ? "text-red-400" : "text-green-400"}>
-            {message}
-          </p>
-        </article>
-      )}
 
       {/* modals */}
       <InputModal
@@ -246,7 +202,7 @@ const DetailsLeft: FunctionComponent<{
         subtitle="Some useful links you may check"
         type="url"
         isVisible={linkModal}
-        onOk={onAddLink}
+        onOk={addLink}
         onCancel={() => setLinkModal(false)}
       />
       <InputModal
@@ -254,11 +210,11 @@ const DetailsLeft: FunctionComponent<{
         subtitle="Comma separated values"
         type="text"
         isVisible={techModal}
-        onOk={onAddTechnology}
+        onOk={addTechnology}
         onCancel={() => setTechModal(false)}
       />
     </section>
   );
 };
 
-export default DetailsLeft;
+export default ProjectInfo;

@@ -1,52 +1,31 @@
-import { useState, FunctionComponent, useRef } from "react";
+import { useState, FunctionComponent, useRef, FC } from "react";
 import Project from "../../models/Project";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { ReactComponent as DeleteIcon } from "../../assets/icons/trash.svg";
 import { ReactComponent as EditIcon } from "../../assets/icons/edit.svg";
 
-const DetailsRight: FunctionComponent<{
-  project: Project;
-  onUpdate: (notes: string[]) => Promise<void>;
-}> = ({ project, onUpdate }) => {
-  const [notes, setNotes] = useState<string[]>(project.notes);
+type Props = {
+  notes: string[];
+  onSave: (note: string) => void;
+  onRemove: (note: string) => void;
+};
+
+const ProjectNotes: FC<Props> = ({ notes, onSave, onRemove }) => {
   const [note, setNote] = useState<string>("");
   const [keyword, setKeyword] = useState("");
-  const [message, setMessage] = useState("");
+
   const editorRef = useRef<any>(null);
 
-  const onUpdateNotes = () => {
-    if (note) {
-      onUpdate([...notes, note])
-        .then((_) => {
-          setNotes([...notes, note]);
-          setNote("");
-        })
-        .catch((err) => {
-          console.error(err);
-          setMessage("Failed to add note, try again !!!");
-        });
-    }
-  };
-
-  const onDeleteNote = (note: string) => {
-    onUpdate(notes.filter((n) => n !== note))
-      .then((_) => {
-        setNotes(notes.filter((n) => n !== note));
-        setNote("");
-      })
-      .catch((err) => {
-        console.error(err);
-        setMessage("Failed to delete note, try again !!!");
-      });
-  };
-
-  const onEditNote = (note: string) => {
-    setNotes((oldNotes) => oldNotes.filter((n) => n !== note));
+  function onEditNote(note: string) {
+    onRemove(note);
     setNote(note);
-    window.scrollTo(0, document.body.scrollHeight);
-  };
+  }
 
+  function saveNote(note: string) {
+    onSave(note);
+    setNote("");
+  }
   return (
     <section className="shadow-lg p-4 rounded-lg mt-4 md:m-4 md:w-3/5 ground">
       <header className="my-2">
@@ -61,9 +40,10 @@ const DetailsRight: FunctionComponent<{
           />
         </article>
       </header>
+
       <article>
         {notes
-          .filter((note) => note.includes(keyword))
+          .filter((note) => (keyword ? note.includes(keyword) : true))
           .map((note) => (
             <article
               key={note}
@@ -79,7 +59,7 @@ const DetailsRight: FunctionComponent<{
               <div className="w-2/12 flex-center opacity-0 group-hover:opacity-100 duration-300">
                 <DeleteIcon
                   className="w-5 h-5 text-red-400 cursor-pointer"
-                  onClick={(_) => onDeleteNote(note)}
+                  onClick={(_) => onRemove(note)}
                 />
                 <EditIcon
                   className="w-5 h-5 text-blue-400 cursor-pointer"
@@ -89,6 +69,7 @@ const DetailsRight: FunctionComponent<{
             </article>
           ))}
       </article>
+
       <article className="text-gray-900">
         <CKEditor
           ref={editorRef}
@@ -100,19 +81,14 @@ const DetailsRight: FunctionComponent<{
           }}
         />
         <button
-          onClick={onUpdateNotes}
+          onClick={(_) => saveNote(note)}
           className="btn btn-blue dark:text-white m-1 w-full md:w-2/4 mx-auto"
         >
           Add
         </button>
       </article>
-      {message && (
-        <article className="text-sm py-2 text-red-400  text-center">
-          {message}
-        </article>
-      )}
     </section>
   );
 };
 
-export default DetailsRight;
+export default ProjectNotes;

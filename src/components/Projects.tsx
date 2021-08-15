@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
-import Details from "./Details/Details";
+import ProjectPage from "./Details/ProjectPage";
 import ProjectList from "./projects/ProjectList";
 import { ProjectsContext } from "../providers/ProjectsProvider";
 import InputModal from "./commons/InputModal";
@@ -40,7 +40,7 @@ const Projects = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/projects/:id" component={Details} />
+        <Route exact path="/projects/:id" component={ProjectPage} />
       </Switch>
       <Plus onClick={(_) => setShowmodal(true)} />
       {/* create new project modal */}

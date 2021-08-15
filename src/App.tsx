@@ -14,6 +14,7 @@ import ForgetPassword from "./components/authentication/ForgetPassword";
 import ProfilePage from "./components/ProfilePage";
 import TaskPage from "./pages/TaskPage";
 import ProjectListPage from "./pages/ProjectListPage";
+import ProjectPage from "./components/Details/ProjectPage";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             restricted={true}
           />
           <PrivateRoute path="/projects" component={ProjectListPage} exact />
+          <PrivateRoute path="/projects/:id" component={ProjectPage} />
           <PrivateRoute path="/profile" component={ProfilePage} />
           <PrivateRoute path="/queue" component={TaskPage} />
           <Route path="*" component={NotFound} />
