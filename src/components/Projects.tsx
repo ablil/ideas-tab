@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import Details from "./Details/Details";
-import Grid from "./projects/Grid";
+import ProjectList from "./projects/ProjectList";
 import { ProjectsContext } from "../providers/ProjectsProvider";
 import InputModal from "./commons/InputModal";
 import Plus from "./commons/Plus";
@@ -40,17 +40,6 @@ const Projects = () => {
   return (
     <div>
       <Switch>
-        <Route
-          exact
-          path="/projects"
-          render={(_) => (
-            <Grid
-              projects={projects || []}
-              onDelete={removeProject}
-              onSelect={viewSideProject}
-            />
-          )}
-        />
         <Route exact path="/projects/:id" component={Details} />
       </Switch>
       <Plus onClick={(_) => setShowmodal(true)} />

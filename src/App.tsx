@@ -13,6 +13,7 @@ import RegistrationPage from "./pages/RegistrationPage";
 import ForgetPassword from "./components/authentication/ForgetPassword";
 import ProfilePage from "./components/ProfilePage";
 import TaskPage from "./pages/TaskPage";
+import ProjectListPage from "./pages/ProjectListPage";
 
 function App() {
   return (
@@ -40,9 +41,9 @@ function App() {
             component={ForgetPassword}
             restricted={true}
           />
+          <PrivateRoute path="/projects" component={ProjectListPage} exact />
           <PrivateRoute path="/profile" component={ProfilePage} />
           <PrivateRoute path="/queue" component={TaskPage} />
-          <PrivateRoute path="/" component={HomePage} />
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>
