@@ -13,7 +13,7 @@ import ProfilePage from "./pages/ProfilePage";
 import TaskPage from "./pages/TaskPage";
 import ProjectListPage from "./pages/ProjectListPage";
 import PrivateRoute from "./routes/PrivateRoute";
-import ProjectPage from "./components/ProjectPage";
+import ProjectPage from "./pages/ProjectPage";
 
 function App() {
   return (

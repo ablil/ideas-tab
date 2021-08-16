@@ -3,16 +3,16 @@ import { useParams } from "react-router-dom";
 import { useFirebase } from "../hooks/useFirebase";
 import PageWrapper from "../layouts/PageWrapper";
 import Project from "../models/Project";
-import Errors from "./commons/Errors";
-import GoBack from "./commons/GoBack";
-import Loading from "./commons/loading";
-import ProjectInfo from "./ProjectInfo";
-import ProjectNotes from "./ProjectNotes";
+import Errors from "../components/commons/Errors";
+import GoBack from "../components/commons/GoBack";
+import Loading from "../components/commons/loading";
+import ProjectInfo from "../components/ProjectInfo";
+import ProjectNotes from "../components/ProjectNotes";
 
 const ProjectPage = () => {
   const { id } = useParams<{ id: string }>();
 
-  const { items, loading, createOrUpdate, remove } = useFirebase<Project>();
+  const { items, loading, createOrUpdate } = useFirebase<Project>();
   const [project, setProject] = useState<Project>();
   const [errors, setErrors] = useState<string[]>([]);
 

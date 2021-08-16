@@ -5,6 +5,7 @@ import Errors from "../components/commons/Errors";
 import LoginForm from "../components/authentication/LoginForm";
 import ThirdPartyAuthProviders from "../components/authentication/ThirdPartyAuthProviders";
 import LoginBanner from "../components/authentication/LoginBanner";
+import firebase from "firebase";
 
 const LoginPage = () => {
   const [errors, setErrors] = useState<string[]>([]);
@@ -14,7 +15,8 @@ const LoginPage = () => {
   const login = (email: string, password: string) => {
     setErrors([]);
     auth
-      .signInWithEmailAndPassword(email, password)
+      .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+      .then((_) => firebase.auth().signInWithEmailAndPassword(email, password))
       .then(() => history.push("/projects"))
       .catch((err: Error) => {
         setErrors([err.message]);
