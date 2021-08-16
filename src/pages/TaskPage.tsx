@@ -34,13 +34,13 @@ const TaskPage = () => {
     <PageWrapper>
       <Errors errors={errors} />
       <section className="flex flex-col md:flex-row w-full max-w-7xl mx-auto h-full">
-        <section className="w-full p-3 md:w-2/6">
+        <div className="w-full p-3 md:w-2/6">
           <TaskInput onAddTask={onAddTask} />
-        </section>
+        </div>
 
-        <section className="w-96 mx-auto md:w-4/6 md:m-4 shadow p-4 ground">
+        <div className="w-96 mx-auto md:w-4/6 md:m-4 shadow p-4 ground">
           <TaskList onDelete={onDelete} tasks={items} />
-        </section>
+        </div>
       </section>
     </PageWrapper>
   );

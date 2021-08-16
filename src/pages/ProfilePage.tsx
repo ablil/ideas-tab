@@ -26,11 +26,11 @@ const ProfilePage = () => {
     <LoadingPage />
   ) : (
     <PageWrapper>
-      <section className="w-96 fade-in shadow pt-4 md:rounded-lg text-center md:w-3/5 lg:w-2/5 mx-auto ground">
-        <article className="text-xl text-bold px-2">
+      <section className="max-w-md fade-in shadow pt-4 text-center mx-auto ground">
+        <header className="text-xl text-bold px-2">
           You are now connected as{" "}
           <span className="text-2xl ">{user.email}</span>
-        </article>
+        </header>
         <Errors errors={errors} />
         <UpdatePasswordForm updatePassword={onUpdatePassword} />
       </section>

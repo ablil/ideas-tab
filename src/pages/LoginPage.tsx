@@ -29,17 +29,19 @@ const LoginPage = () => {
 
   return (
     <section className="h-screen fade-in flex flex-col lg:flex-row lg:items-center">
-      <article className="h-full flex-center flex-col bg-gradient-to-r from-blue-400 to-transparent lg:w-7/12">
+      <div className="h-full flex-center flex-col bg-gradient-to-r from-blue-400 to-transparent w-5/6 py-12 lg:w-7/12">
         <LoginBanner />
-      </article>
+      </div>
 
       <article className="lg:w-5/12 py-12 my-auto">
-        <header className="px-12 text-2xl pt-8">
+        <header className="px-12 text-2xl pt-8 text-center">
           <h1>Account Login</h1>
           <Errors errors={errors} />
         </header>
 
-        <LoginForm login={login} />
+        <div className="max-w-md mx-auto px-8">
+          <LoginForm login={login} />
+        </div>
         <ThirdPartyAuthProviders onError={onThirdPartyAuthenticationError} />
       </article>
     </section>

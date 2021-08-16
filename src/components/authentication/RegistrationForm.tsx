@@ -37,7 +37,7 @@ const RegistrationForm: FC<ComponentProps> = ({ register }) => {
 
   return (
     <form action="">
-      <article className="px-12">
+      <div>
         <label htmlFor="email">Email</label>
         <input
           id="email"
@@ -47,10 +47,10 @@ const RegistrationForm: FC<ComponentProps> = ({ register }) => {
           value={data.email}
           onChange={handleChange}
         />
-        {errors.email && <article className="error">{errors.email}</article>}
-      </article>
+        {errors.email && <span className="error">{errors.email}</span>}
+      </div>
 
-      <article className="px-12">
+      <div>
         <label htmlFor="password">Password</label>
         <input
           id="password"
@@ -60,12 +60,10 @@ const RegistrationForm: FC<ComponentProps> = ({ register }) => {
           value={data.password}
           onChange={handleChange}
         />
-        {errors.password && (
-          <article className="error">{errors.password}</article>
-        )}
-      </article>
+        {errors.password && <span className="error">{errors.password}</span>}
+      </div>
 
-      <article className="px-12">
+      <div>
         <label htmlFor="confirmPassword">Retype Password</label>
         <input
           id="confirmPassword"
@@ -76,11 +74,11 @@ const RegistrationForm: FC<ComponentProps> = ({ register }) => {
           onChange={handleChange}
         />
         {errors.confirmPassword && (
-          <article className="error">{errors.confirmPassword}</article>
+          <span className="error">{errors.confirmPassword}</span>
         )}
-      </article>
+      </div>
 
-      <article className="py-4 px-12">
+      <div>
         <button
           type="submit"
           className="btn w-3/4 btn-blue"
@@ -88,7 +86,7 @@ const RegistrationForm: FC<ComponentProps> = ({ register }) => {
         >
           Register
         </button>
-      </article>
+      </div>
 
       <footer className="p-4 flex justify-center flex-wrap">
         <Link to="/login">already have an account</Link>

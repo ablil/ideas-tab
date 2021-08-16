@@ -26,7 +26,7 @@ const ProjectNotes: FC<Props> = ({ notes, onSave, onRemove }) => {
     setNote("");
   }
   return (
-    <section className="shadow-lg p-4 rounded-lg mt-4 md:m-4 md:w-3/5 ground">
+    <section className="shadow-lg p-8 rounded-lg ground">
       <header className="my-2">
         <span className="title">Keep notes for yourself</span>
         <article>

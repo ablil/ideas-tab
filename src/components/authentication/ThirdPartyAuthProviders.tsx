@@ -18,9 +18,9 @@ const ThirdPartyAuthProviders: FunctionComponent<{
   };
   return (
     <footer className="py-4">
-      <p className="text-blue-400 text-center text-sm">
+      <small className="text-blue-400 text-center">
         Or authenticate with :
-      </p>
+      </small>
       <article className="flex justify-center items-center text-gray-50 py-4">
         <GoogleIcon
           onClick={(_) => onAuthenticate(googleProvider)}

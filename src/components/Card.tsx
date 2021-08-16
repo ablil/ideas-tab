@@ -46,9 +46,7 @@ const Card: FunctionComponent<{
                 .slice(0, 3)
                 .map((tech) => <span className="badge">{tech}</span>)
             ) : (
-              <span className="opacity-50 text-sm">
-                No technology is specified
-              </span>
+              <small className="opacity-50">No technology is specified</small>
             )}
           </article>
           {/* delete project */}

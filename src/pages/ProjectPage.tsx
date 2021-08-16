@@ -54,12 +54,16 @@ const ProjectPage = () => {
             </header>
             <Errors errors={errors} />
             <div className="w-full max-w-7xl mx-auto h-full flex flex-col md:flex-row">
-              <ProjectInfo project={project} onSave={createOrUpdate} />
-              <ProjectNotes
-                notes={project.notes}
-                onSave={addNote}
-                onRemove={removeNote}
-              />
+              <div className="md:m-4 md:w-2/5 md:self-start md:sticky md:top-0">
+                <ProjectInfo project={project} onSave={createOrUpdate} />
+              </div>
+              <div className="mt-4 md:m-4 md:w-3/5 ">
+                <ProjectNotes
+                  notes={project.notes}
+                  onSave={addNote}
+                  onRemove={removeNote}
+                />
+              </div>
             </div>
           </section>
         ) : (

@@ -36,7 +36,7 @@ const LoginForm: FC<LoginFormProps> = ({ login }) => {
 
   return (
     <form action="">
-      <article className="py-4 px-12">
+      <div>
         <label htmlFor="email">Email</label>
         <input
           id="password"
@@ -46,12 +46,10 @@ const LoginForm: FC<LoginFormProps> = ({ login }) => {
           value={data.email}
           onChange={handleChange}
         />
-        {errors.email && (
-          <span className="text-red-400 text-sm font-bold">{errors.email}</span>
-        )}
-      </article>
+        {errors.email && <span className="error">{errors.email}</span>}
+      </div>
 
-      <article className="py-4 px-12">
+      <div>
         <label htmlFor="password">Password</label>
         <input
           id="password"
@@ -61,14 +59,10 @@ const LoginForm: FC<LoginFormProps> = ({ login }) => {
           value={data.password}
           onChange={handleChange}
         />
-        {errors.password && (
-          <span className="text-red-400 text-sm font-bold">
-            {errors.password}
-          </span>
-        )}
-      </article>
+        {errors.password && <span className="error">{errors.password}</span>}
+      </div>
 
-      <article className="py-4 px-12">
+      <div>
         <button
           type="submit"
           className="btn w-3/4 btn-blue"
@@ -76,7 +70,7 @@ const LoginForm: FC<LoginFormProps> = ({ login }) => {
         >
           Login
         </button>
-      </article>
+      </div>
 
       <footer className="p-4 flex justify-center flex-wrap">
         <Link to="/register">create account</Link>

@@ -34,8 +34,8 @@ const UpdatePasswordForm: FC<ComponentProps> = ({ updatePassword }) => {
   }
 
   return (
-    <form action="" className="w-full mx-auto">
-      <article className="py-1 px-12">
+    <form action="" className="p-8">
+      <div>
         <label className="title" htmlFor="password">
           Current Password
         </label>
@@ -49,9 +49,9 @@ const UpdatePasswordForm: FC<ComponentProps> = ({ updatePassword }) => {
         {errors.oldPassword && (
           <article className="error">{errors.oldPassword}</article>
         )}
-      </article>
+      </div>
 
-      <article className="py-1 px-12">
+      <div>
         <label className="title" htmlFor="password">
           New Password
         </label>
@@ -65,9 +65,9 @@ const UpdatePasswordForm: FC<ComponentProps> = ({ updatePassword }) => {
         {errors.newPassword && (
           <article className="error">{errors.newPassword}</article>
         )}
-      </article>
+      </div>
 
-      <article className="py-1 px-12">
+      <div>
         <label className="title" htmlFor="password">
           Retype New Password
         </label>
@@ -81,9 +81,9 @@ const UpdatePasswordForm: FC<ComponentProps> = ({ updatePassword }) => {
         {errors.confirmPassword && (
           <article className="error">{errors.confirmPassword}</article>
         )}
-      </article>
+      </div>
 
-      <article className="py-1 px-12">
+      <div>
         <button
           type="submit"
           className="btn w-3/4 btn-blue"
@@ -91,7 +91,7 @@ const UpdatePasswordForm: FC<ComponentProps> = ({ updatePassword }) => {
         >
           Update Password
         </button>
-      </article>
+      </div>
     </form>
   );
 };

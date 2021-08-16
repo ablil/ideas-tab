@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import Project from "../models/Project";
 import InputModal from "./commons/InputModal";
+import { ReactComponent as PlusIcon } from "../assets/icons/plus.svg";
 import { ReactComponent as TrashIcon } from "../assets/icons/trash.svg";
 
 type Props = {
@@ -65,9 +66,9 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
   return (
     <section
       id="project-details-left"
-      className="shadow-lg rounded-lg py-4 md:m-4 md:w-2/5 md:self-start md:sticky md:top-0 ground"
+      className="p-8 shadow-lg rounded-lg ground"
     >
-      <article className="input-wrapper">
+      <div>
         <label className="title">name</label>
         <input
           type="text"
@@ -79,13 +80,13 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
           value={projectCopy.name}
           onChange={handleChange}
         />
-      </article>
+      </div>
 
-      <article className="input-wrapper">
+      <div>
         <label className="title">
           repository
           <a
-            className="text-white underline"
+            className="text-gray-900 underline dark:text-dark"
             href={projectCopy.repository || "#"}
             target="_blank"
             rel="noreferrer"
@@ -100,9 +101,9 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
           value={projectCopy.repository}
           onChange={handleChange}
         />
-      </article>
+      </div>
 
-      <article className="input-wrapper">
+      <div>
         <label className="title">description</label>
         <textarea
           name="description"
@@ -110,16 +111,13 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
           placeholder="N/A"
           onChange={handleChange}
         ></textarea>
-      </article>
+      </div>
 
-      <article className="input-wrapper">
+      <div>
         <label className="title">
           Technologies{" "}
-          <button
-            className="text-white underline"
-            onClick={(_) => setTechModal(true)}
-          >
-            add technology
+          <button onClick={(_) => setTechModal(true)}>
+            <PlusIcon className="w-4 h-auto text-blue-400 dark:text-yellow-400 fill-current" />
           </button>
         </label>
         <div className="flex flex-wrap">
@@ -135,37 +133,34 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
           ))}
         </div>
         <p className="hint pl-2">Click to remove</p>
-      </article>
+      </div>
 
-      <article className="input-wrapper">
+      <div>
         <label className="title">
           Related links
-          <button
-            className="px-1 text-white underline"
-            onClick={(_) => setLinkModal(true)}
-          >
-            add link
+          <button onClick={(_) => setLinkModal(true)}>
+            <PlusIcon className="w-4 h-auto text-blue-400 dark:text-yellow-400 fill-current" />
           </button>
         </label>
         <ul className="list-none">
           {projectCopy.links.map((link) => (
-            <li className="underline px-2 flex items-center group" key={link}>
-              <TrashIcon
-                className="w-5 h-5 text-red-400 opacity-0 group-hover:opacity-100 cursor-pointer duration-300"
-                onClick={(_) => removeLink(link)}
-              />
+            <li className="underline flex items-center group" key={link}>
               <a
-                className="overflow-ellipsis text-base block w-10/12"
+                className="truncate"
                 href={link}
                 target="_blank"
                 rel="noreferrer"
               >
                 {link}
               </a>
+              <TrashIcon
+                className="w-5 h-5 text-red-400 opacity-0 group-hover:opacity-100 cursor-pointer duration-300"
+                onClick={(_) => removeLink(link)}
+              />
             </li>
           ))}
         </ul>
-      </article>
+      </div>
 
       <article className="flex-center flex-col flex-wrap md:flex-row p-4">
         <button
@@ -194,12 +189,12 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
         would make it work for the time being */}
         <hr className="w-5/6 mx-auto my-2 opacity-50" />
         <p className="text-xs px-2">
-          <span className="font-bold px-2">Created</span>
+          <strong className="pr-2">Created</strong>
           {/* @ts-ignore */}
           {project.created?.toDate().toLocaleString()}
         </p>
         <p className="text-xs px-2">
-          <span className="font-bold px-2">Modified</span>
+          <strong className="pr-2">Modified</strong>
           {/* @ts-ignore */}
           {project.lastModified?.toDate().toLocaleString()}
         </p>

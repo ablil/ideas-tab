@@ -1,13 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* 
-  @apply basic style
-  @apply basic style on hover
-
-  @apply basic style on dark mode
-  @apply basic style on dark mode and hover
-*/
 
 @layer base {
   body,
@@ -66,10 +59,6 @@
   }
   .flex-center {
     @apply flex justify-center items-center;
-  }
-  .input-wrapper {
-    @apply px-3 py-2 text-gray-700;
-    @apply dark:text-gray-50;
   }
 }
 
