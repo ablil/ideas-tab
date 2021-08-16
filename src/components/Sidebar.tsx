@@ -4,16 +4,18 @@ import { ReactComponent as UserIcon } from "../assets/icons/user.svg";
 import { ReactComponent as LogoutIcon } from "../assets/icons/logout.svg";
 import { ReactComponent as QueueIcon } from "../assets/icons/collection.svg";
 import { Link, useHistory } from "react-router-dom";
-import { auth } from "../config/firebase";
 import ThemeSwitch from "./commons/ThemeSwitch";
+import firebase from "firebase";
 
 const Sidebar = () => {
   const history = useHistory();
 
-  const logout = () => {
-    auth.signOut();
-    history.push("/login");
-  };
+  function logout(evt: any) {
+    firebase
+      .auth()
+      .signOut()
+      .finally(() => history.push("/login"));
+  }
 
   return (
     <nav className="navbar">
@@ -28,16 +30,13 @@ const Sidebar = () => {
       </Link>
 
       <ThemeSwitch className="mt-1" />
-      <a
+      <button
         className="navbar-link lg:mt-auto"
         title="Your profile"
-        onClick={(e) => {
-          e.preventDefault();
-          logout();
-        }}
+        onClick={logout}
       >
         <LogoutIcon className="navbar-icon hover:text-red-400" />
-      </a>
+      </button>
     </nav>
   );
 };
