@@ -2,19 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Errors from "../components/commons/Errors";
 import InputModal from "../components/commons/InputModal";
-import ProjectList from "../components/ProjectList";
-import ProjectSearchbar from "../components/ProjectSearchbar";
+import IdeaList from "../components/IdeaList";
+import IdeaSearchbar from "../components/IdeaSearchbar";
 import { useFirebase } from "../hooks/useFirebase";
 import PageWrapper from "../layouts/PageWrapper";
-import Project from "../models/Project";
+import Idea from "../models/Idea";
 import LoadingPage from "./LoadingPage";
 import { v4 } from "uuid";
 import Plus from "../components/commons/Plus";
 
-const ProjectListPage = () => {
-  const { items, loading, createOrUpdate, remove } = useFirebase<Project>();
+const IdeaListPage = () => {
+  const { items, loading, createOrUpdate, remove } = useFirebase<Idea>();
 
-  const [projects, setProjects] = useState([...items]);
+  const [ideas, setIdeas] = useState([...items]);
   const [displayFormat, setDisplayFormat] = useState("grid");
   const [errors, setErrors] = useState<string[]>([]);
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
@@ -22,10 +22,10 @@ const ProjectListPage = () => {
   const history = useHistory();
 
   useEffect(() => {
-    setProjects([...items]);
+    setIdeas([...items]);
   }, [items]);
 
-  function createProject(name: string) {
+  function createIdea(name: string) {
     const p = {
       id: v4(),
       name,
@@ -38,18 +38,18 @@ const ProjectListPage = () => {
       lastModified: new Date(),
     };
     createOrUpdate(p)
-      .then((_) => history.push("/projects/" + p.id))
+      .then((_) => history.push("/ideas/" + p.id))
       .catch((err) => setErrors([err.message]));
   }
-  function filterProject(keyword?: string) {
+  function filterIdea(keyword?: string) {
     if (keyword && keyword.length !== 0) {
-      setProjects(
+      setIdeas(
         items.filter(
           (p) => p.name.includes(keyword) || p.technologies.includes(keyword)
         )
       );
     } else {
-      setProjects([...items]);
+      setIdeas([...items]);
     }
   }
 
@@ -57,14 +57,14 @@ const ProjectListPage = () => {
     setDisplayFormat(format);
   }
 
-  function removeProject(id: string) {
+  function removeIdea(id: string) {
     remove(id)
-      .then((_) => setProjects(items.filter((p) => p.id !== id)))
+      .then((_) => setIdeas(items.filter((p) => p.id !== id)))
       .catch((err: Error) => setErrors([err.message]));
   }
 
-  function selectProject(id: string) {
-    history.push("/projects/" + id);
+  function selectIdea(id: string) {
+    history.push("/ideas/" + id);
   }
 
   return loading ? (
@@ -72,18 +72,18 @@ const ProjectListPage = () => {
   ) : (
     <PageWrapper>
       <div className="w-5/6 mx-auto">
-        <ProjectSearchbar
-          onFilter={filterProject}
+        <IdeaSearchbar
+          onFilter={filterIdea}
           onChangeDisplayFormat={changeDisplayFormat}
         />
       </div>
       <Errors errors={errors} />
       <div className="fade-in">
-        <ProjectList
-          onRemove={removeProject}
-          onSelect={selectProject}
+        <IdeaList
+          onRemove={removeIdea}
+          onSelect={selectIdea}
           displayFormat={displayFormat}
-          projects={projects}
+          ideas={ideas}
         />
       </div>
       <footer>
@@ -93,7 +93,7 @@ const ProjectListPage = () => {
           subtitle="add you new idea here"
           type="text"
           isVisible={isModalVisible}
-          onOk={createProject}
+          onOk={createIdea}
           onCancel={() => setIsModalVisible(false)}
         />
       </footer>
@@ -101,4 +101,4 @@ const ProjectListPage = () => {
   );
 };
 
-export default ProjectListPage;
+export default IdeaListPage;

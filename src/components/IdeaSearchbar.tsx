@@ -7,7 +7,7 @@ type Props = {
   onChangeDisplayFormat: (format: string) => void;
 };
 
-const ProjectSearchbar: FC<Props> = ({ onFilter, onChangeDisplayFormat }) => {
+const IdeaSearchbar: FC<Props> = ({ onFilter, onChangeDisplayFormat }) => {
   const [keyword, setKeyword] = useState("");
 
   function handleChange(evt: any) {
@@ -38,4 +38,4 @@ const ProjectSearchbar: FC<Props> = ({ onFilter, onChangeDisplayFormat }) => {
   );
 };
 
-export default ProjectSearchbar;
+export default IdeaSearchbar;

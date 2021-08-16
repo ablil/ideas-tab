@@ -17,7 +17,7 @@ const LoginPage = () => {
     auth
       .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
       .then((_) => firebase.auth().signInWithEmailAndPassword(email, password))
-      .then(() => history.push("/projects"))
+      .then(() => history.push("/ideas"))
       .catch((err: Error) => {
         setErrors([err.message]);
       });

@@ -11,19 +11,19 @@ import RegistrationPage from "./pages/RegistrationPage";
 import ForgetPassword from "./components/authentication/ForgetPassword";
 import ProfilePage from "./pages/ProfilePage";
 import TaskPage from "./pages/TaskPage";
-import ProjectListPage from "./pages/ProjectListPage";
+import IdeaListPage from "./pages/IdeaListPage";
 import PrivateRoute from "./routes/PrivateRoute";
-import ProjectPage from "./pages/ProjectPage";
+import IdeaPage from "./pages/IdeaPage";
 
 function App() {
   return (
     <div className="App">
       <Helmet>
         <meta charSet="UTF-8" />
-        <meta name="description" content="keep track of your projects ideas" />
+        <meta name="description" content="keep track of your ideas ideas" />
         <meta
           name="keywords"
-          content="project, idea, dev, tab, web, software, app"
+          content="idea, idea, dev, tab, web, software, app"
         />
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
       </Helmet>
@@ -41,8 +41,8 @@ function App() {
             component={ForgetPassword}
             restricted={true}
           />
-          <PrivateRoute path="/projects" component={ProjectListPage} exact />
-          <PrivateRoute path="/projects/:id" component={ProjectPage} />
+          <PrivateRoute path="/ideas" component={IdeaListPage} exact />
+          <PrivateRoute path="/ideas/:id" component={IdeaPage} />
           <PrivateRoute path="/profile" component={ProfilePage} />
           <PrivateRoute path="/queue" component={TaskPage} />
           <Route path="*" component={NotFound} />

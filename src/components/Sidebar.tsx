@@ -19,7 +19,7 @@ const Sidebar = () => {
 
   return (
     <nav className="navbar">
-      <Link to="/projects" className="navbar-link" title="Projects">
+      <Link to="/ideas" className="navbar-link" title="Ideas">
         <ComputerIcon className="navbar-icon" />
       </Link>
       <Link to="/profile" className="navbar-link " title="Profile">

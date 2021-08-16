@@ -1,28 +1,28 @@
 import React, { FC, useState } from "react";
-import Project from "../models/Project";
+import Idea from "../models/Idea";
 import InputModal from "./commons/InputModal";
 import { ReactComponent as PlusIcon } from "../assets/icons/plus.svg";
 import { ReactComponent as TrashIcon } from "../assets/icons/trash.svg";
 
 type Props = {
-  project: Project;
-  onSave: (p: Project) => void;
+  idea: Idea;
+  onSave: (p: Idea) => void;
 };
 
-const ProjectInfo: FC<Props> = ({ project, onSave }) => {
-  const [projectCopy, setProjectCopy] = useState<Project>(project);
+const IdeaInfo: FC<Props> = ({ idea, onSave }) => {
+  const [ideaCopy, setIdeaCopy] = useState<Idea>(idea);
   const [isModified, setIsModified] = useState(false);
 
   const [techModal, setTechModal] = useState(false);
   const [linkModal, setLinkModal] = useState(false);
 
   function handleChange(evt: any) {
-    setProjectCopy((old) => ({ ...old, [evt.target.name]: evt.target.value }));
+    setIdeaCopy((old) => ({ ...old, [evt.target.name]: evt.target.value }));
     setIsModified(true);
   }
 
   function removeTechnology(technology: string) {
-    setProjectCopy((old) => ({
+    setIdeaCopy((old) => ({
       ...old,
       technologies: old.technologies.filter((t) => t !== technology),
     }));
@@ -30,7 +30,7 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
   }
 
   function removeLink(link: string) {
-    setProjectCopy((old) => ({
+    setIdeaCopy((old) => ({
       ...old,
       links: old.links.filter((l) => l !== link),
     }));
@@ -38,7 +38,7 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
   }
 
   function addTechnology(techonlogy: string) {
-    setProjectCopy((old) => ({
+    setIdeaCopy((old) => ({
       ...old,
       technologies: old.technologies.concat(techonlogy.split(",")),
     }));
@@ -46,7 +46,7 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
   }
 
   function addLink(link: string) {
-    setProjectCopy((old) => ({
+    setIdeaCopy((old) => ({
       ...old,
       links: old.links.concat(link),
     }));
@@ -54,20 +54,17 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
   }
 
   function saveModification() {
-    onSave(projectCopy);
+    onSave(ideaCopy);
     setIsModified(false);
   }
 
   function cancelModification() {
-    setProjectCopy(project);
+    setIdeaCopy(idea);
     setIsModified(false);
   }
 
   return (
-    <section
-      id="project-details-left"
-      className="p-8 shadow-lg rounded-lg ground"
-    >
+    <section id="idea-details-left" className="p-8 shadow-lg rounded-lg ground">
       <div>
         <label className="title">name</label>
         <input
@@ -77,7 +74,7 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
           required={true}
           placeholder="N/A"
           name="name"
-          value={projectCopy.name}
+          value={ideaCopy.name}
           onChange={handleChange}
         />
       </div>
@@ -87,7 +84,7 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
           repository
           <a
             className="text-gray-900 underline dark:text-dark"
-            href={projectCopy.repository || "#"}
+            href={ideaCopy.repository || "#"}
             target="_blank"
             rel="noreferrer"
           >
@@ -98,7 +95,7 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
           type="url"
           placeholder="N/A"
           name="repository"
-          value={projectCopy.repository}
+          value={ideaCopy.repository}
           onChange={handleChange}
         />
       </div>
@@ -107,7 +104,7 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
         <label className="title">description</label>
         <textarea
           name="description"
-          value={projectCopy.description}
+          value={ideaCopy.description}
           placeholder="N/A"
           onChange={handleChange}
         ></textarea>
@@ -121,7 +118,7 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
           </button>
         </label>
         <div className="flex flex-wrap">
-          {projectCopy.technologies.map((tech) => (
+          {ideaCopy.technologies.map((tech) => (
             <span
               key={tech}
               title="click to delete"
@@ -143,7 +140,7 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
           </button>
         </label>
         <ul className="list-none">
-          {projectCopy.links.map((link) => (
+          {ideaCopy.links.map((link) => (
             <li className="underline flex items-center group" key={link}>
               <a
                 className="truncate"
@@ -191,12 +188,12 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
         <p className="text-xs px-2">
           <strong className="pr-2">Created</strong>
           {/* @ts-ignore */}
-          {project.created?.toDate().toLocaleString()}
+          {idea.created?.toDate().toLocaleString()}
         </p>
         <p className="text-xs px-2">
           <strong className="pr-2">Modified</strong>
           {/* @ts-ignore */}
-          {project.lastModified?.toDate().toLocaleString()}
+          {idea.lastModified?.toDate().toLocaleString()}
         </p>
       </article>
 
@@ -221,4 +218,4 @@ const ProjectInfo: FC<Props> = ({ project, onSave }) => {
   );
 };
 
-export default ProjectInfo;
+export default IdeaInfo;

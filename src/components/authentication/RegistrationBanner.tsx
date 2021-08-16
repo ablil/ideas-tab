@@ -9,7 +9,7 @@ const RegistrationBanner = () => {
           You will never know when you get that one million $$ idea
         </h1>
         <h3 className="text-sm pt-2 text-gray-900 dark:text-white">
-          Create an account and keep tracks of you side projects
+          Create an account and keep tracks of you side ideas
         </h3>
       </article>
       <article className="flex-center">

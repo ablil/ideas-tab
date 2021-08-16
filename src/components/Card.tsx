@@ -1,32 +1,32 @@
 import React, { FunctionComponent } from "react";
 import { ReactComponent as TrashIcon } from "../assets/icons/trash.svg";
-import Project from "../models/Project";
+import Idea from "../models/Idea";
 
 const Card: FunctionComponent<{
   dispalyFormat?: string;
-  project: Project;
+  idea: Idea;
   onSelect: (id: string) => void;
   onRemove: (id: string) => void;
-}> = ({ dispalyFormat: displayFormat, project, onSelect, onRemove }) => {
+}> = ({ dispalyFormat: displayFormat, idea, onSelect, onRemove }) => {
   return (
     <section
       className={`w-96 h-32 m-4 mb-8 cursor-pointer ${
         displayFormat === "list" ? "w-full" : "w-80"
       }`}
-      onClick={(_) => onSelect(project.id)}
+      onClick={(_) => onSelect(idea.id)}
     >
       <section className="card group ">
         <section className="">
-          <h1 className="truncate title">{project.name}</h1>
+          <h1 className="truncate title">{idea.name}</h1>
           <p
-            title={project.description ? project.description : "n/a"}
+            title={idea.description ? idea.description : "n/a"}
             className="truncate text-xs opacity-50 group-hover:opacity-70 text-md"
           >
-            {project.description ? project.description : "No Description"}
+            {idea.description ? idea.description : "No Description"}
           </p>
-          {project.repository ? (
+          {idea.repository ? (
             <a
-              href={project.repository}
+              href={idea.repository}
               target="_blank"
               rel="noreferrer"
               title="click to visit"
@@ -41,23 +41,23 @@ const Card: FunctionComponent<{
         <footer className="mt-2 flex">
           {/* technologies */}
           <article className="w-3/4 overflow-hidden">
-            {project.technologies.length !== 0 ? (
-              project.technologies
+            {idea.technologies.length !== 0 ? (
+              idea.technologies
                 .slice(0, 3)
                 .map((tech) => <span className="badge">{tech}</span>)
             ) : (
               <small className="opacity-50">No technology is specified</small>
             )}
           </article>
-          {/* delete project */}
+          {/* delete idea */}
           <article
             className="w-1/4 ml-auto duration-300 opacity-0 group-hover:opacity-100"
-            title="Delete project idea"
+            title="Delete idea idea"
           >
             <TrashIcon
               onClick={(e) => {
                 e.stopPropagation();
-                onRemove(project.id);
+                onRemove(idea.id);
               }}
               className="w-2/6 border-2 text-red-400 border-red-400 hover:bg-red-400 hover:text-white rounded float-right transition-colors duration-300"
             />

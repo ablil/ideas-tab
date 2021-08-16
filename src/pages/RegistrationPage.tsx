@@ -7,7 +7,7 @@ import firebase from "firebase";
 import RegistrationForm from "../components/authentication/RegistrationForm";
 import Errors from "../components/commons/Errors";
 import RegistrationBanner from "../components/authentication/RegistrationBanner";
-import { createExampleProject } from "../service/projects";
+import { createExampleIdea } from "../service/ideas";
 
 const RegistrationPage = () => {
   const [errors, setErrors] = useState<string[]>([]);
@@ -18,7 +18,7 @@ const RegistrationPage = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((creds: firebase.auth.UserCredential) => {
-        createExampleProject(creds.user?.uid!);
+        createExampleIdea(creds.user?.uid!);
         history.push("/");
       })
       .catch((err: Error) => setErrors([err.message]));

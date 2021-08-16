@@ -14,7 +14,7 @@ export default function PublicRoute({
   const [user] = useAuthState(firebase.auth());
 
   if (user && restricted) {
-    return <Redirect to="/projects" />;
+    return <Redirect to="/ideas" />;
   } else {
     return <Route {...routeProps} />;
   }

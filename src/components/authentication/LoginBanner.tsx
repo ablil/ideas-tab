@@ -7,7 +7,7 @@ const LoginBanner = () => {
       <article className="text-center">
         <h1 className="text-4xl ">Keep tracks of your ideas</h1>
         <small className="pt-2 text-gray-900 dark:text-white">
-          It is time to start that side project, you bought a domain name for.
+          It is time to start that side idea, you bought a domain name for.
         </small>
       </article>
       <article className="flex-center">

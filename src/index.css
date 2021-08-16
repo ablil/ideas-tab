@@ -1,5 +1,5 @@
 /* 
-Use this file to override some css style which does not require rebuilding the project
+Use this file to override some css style which does not require rebuilding the idea
 */
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
 
@@ -18,7 +18,7 @@ input:invalid {
   font-family: "Nunito", sans-serif;
 }
 
-#project-details-left {
+#idea-details-left {
   height: max-content;
 }
 

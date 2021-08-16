@@ -10,7 +10,7 @@ type Props = {
   onRemove: (note: string) => void;
 };
 
-const ProjectNotes: FC<Props> = ({ notes, onSave, onRemove }) => {
+const IdeaNotes: FC<Props> = ({ notes, onSave, onRemove }) => {
   const [note, setNote] = useState<string>("");
   const [keyword, setKeyword] = useState("");
 
@@ -90,4 +90,4 @@ const ProjectNotes: FC<Props> = ({ notes, onSave, onRemove }) => {
   );
 };
 
-export default ProjectNotes;
+export default IdeaNotes;

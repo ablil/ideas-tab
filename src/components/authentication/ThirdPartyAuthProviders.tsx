@@ -13,7 +13,7 @@ const ThirdPartyAuthProviders: FunctionComponent<{
     firebase
       .auth()
       .signInWithPopup(provider)
-      .then((_) => history.push("/projects"))
+      .then((_) => history.push("/ideas"))
       .catch((err) => onError(err));
   };
   return (

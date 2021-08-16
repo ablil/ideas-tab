@@ -1,4 +1,4 @@
-export default interface Project {
+export default interface Idea {
   id: string;
   name: string;
   description?: string;

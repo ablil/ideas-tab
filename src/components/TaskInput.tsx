@@ -32,7 +32,7 @@ const TaskInput: FC<ComponentProps> = ({ onAddTask }) => {
 
       <footer className="text-xs">
         <span className="bold">Hint:</span> here you would add task or notes,
-        that does not belong to any project
+        that does not belong to any idea
       </footer>
     </>
   );
