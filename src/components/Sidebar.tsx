@@ -14,7 +14,7 @@ const Sidebar = () => {
     firebase
       .auth()
       .signOut()
-      .finally(() => history.push("/login"));
+      .finally(() => history.push("/"));
   }
 
   return (

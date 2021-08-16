@@ -14,6 +14,8 @@ import TaskPage from "./pages/TaskPage";
 import IdeaListPage from "./pages/IdeaListPage";
 import PrivateRoute from "./routes/PrivateRoute";
 import IdeaPage from "./pages/IdeaPage";
+import LandingPage from "./pages/LandingPage";
+import TermsPage from "./pages/TermsPage";
 
 function App() {
   return (
@@ -30,6 +32,7 @@ function App() {
 
       <Router>
         <Switch>
+          <PublicRoute path="/" component={LandingPage} exact />
           <PublicRoute path="/login" component={LoginPage} restricted={true} />
           <PublicRoute
             path="/register"
@@ -41,6 +44,7 @@ function App() {
             component={ForgetPassword}
             restricted={true}
           />
+          <PublicRoute path="/terms" component={TermsPage} exact />
           <PrivateRoute path="/ideas" component={IdeaListPage} exact />
           <PrivateRoute path="/ideas/:id" component={IdeaPage} />
           <PrivateRoute path="/profile" component={ProfilePage} />
