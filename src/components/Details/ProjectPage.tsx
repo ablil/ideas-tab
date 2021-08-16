@@ -14,33 +14,33 @@ const ProjectPage = () => {
   const { id } = useParams<{ id: string }>();
 
   const { items, loading, createOrUpdate, remove } = useFirebase<Project>();
-  const [project, setProject] = useState<Project | undefined>();
+  const [project, setProject] = useState<Project>();
   const [errors, setErrors] = useState<string[]>([]);
 
   useEffect(() => {
     setProject(items.find((p) => p.id === id));
-  }, [loading]);
+  }, [loading, id]);
 
   function addNote(note: string) {
-    // FIXEME: notes are note added
-    setProject(
-      (old) => ({ ...old, notes: old?.notes.concat(note) || [] } as Project)
-    );
-    if (project)
-      createOrUpdate(project).catch((err: Error) => setErrors([err.message]));
+    if (project && id) {
+      const p: Project = { ...project, id, notes: [...project.notes, note] };
+      createOrUpdate(p)
+        .then((_) => setProject(p))
+        .catch((err) => setErrors([err.message]));
+    }
   }
 
   function removeNote(note: string) {
-    // FIXME: Note are not deleted
-    setProject(
-      (old) =>
-        ({
-          ...old,
-          notes: old?.notes.filter((n) => n !== note),
-        } as Project)
-    );
-    if (project)
-      createOrUpdate(project).catch((err: Error) => setErrors([err.message]));
+    if (project && id) {
+      const p: Project = {
+        ...project,
+        id,
+        notes: project.notes ? project.notes.filter((i) => i !== note) : [],
+      };
+      createOrUpdate(p)
+        .then((_) => setProject(p))
+        .catch((err) => setErrors([err.message]));
+    }
   }
 
   if (loading) {
