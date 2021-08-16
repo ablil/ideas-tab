@@ -4210,11 +4210,6 @@ chardet@^0.7.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
-chart.js@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-3.0.2.tgz#5893b0548714445b5190cbda9ac307357a56a0c7"
-  integrity sha512-DR0GmFSlxcFJp/w//ZmbxSduAkH/AqwxoiZxK97KHnWZf6gvsKWS3160WvNMMHYvzW9OXqGWjPjVh1Qu+xDabg==
-
 check-types@^11.1.1:
   version "11.1.2"
   resolved "https://registry.npmjs.org/check-types/-/check-types-11.1.2.tgz"

@@ -1,14 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Project from "../../models/Project";
-import Loading from "../commons/loading";
+import { useFirebase } from "../hooks/useFirebase";
+import PageWrapper from "../layouts/PageWrapper";
+import Project from "../models/Project";
+import Errors from "./commons/Errors";
+import GoBack from "./commons/GoBack";
+import Loading from "./commons/loading";
 import ProjectInfo from "./ProjectInfo";
-import { ProjectsContext } from "../../providers/ProjectsProvider";
 import ProjectNotes from "./ProjectNotes";
-import GoBack from "../commons/GoBack";
-import { useFirebase } from "../../hooks/useFirebase";
-import PageWrapper from "../../layouts/PageWrapper";
-import Errors from "../commons/Errors";
 
 const ProjectPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -47,8 +46,6 @@ const ProjectPage = () => {
     return <Loading />;
   } else {
     return (
-      // TODO: create another useFirebaseDoc hooks, and use ti
-      // FIXME: project not found is displayed for a split of a second
       <PageWrapper>
         {project ? (
           <section className="fade-in mx-4 mt-4">

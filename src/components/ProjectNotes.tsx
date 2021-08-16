@@ -1,9 +1,8 @@
-import { useState, FunctionComponent, useRef, FC } from "react";
-import Project from "../../models/Project";
+import { useState, useRef, FC } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { ReactComponent as DeleteIcon } from "../../assets/icons/trash.svg";
-import { ReactComponent as EditIcon } from "../../assets/icons/edit.svg";
+import { ReactComponent as DeleteIcon } from "../assets/icons/trash.svg";
+import { ReactComponent as EditIcon } from "../assets/icons/edit.svg";
 
 type Props = {
   notes: string[];

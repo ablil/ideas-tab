@@ -2,7 +2,6 @@ import React from "react";
 import { ReactComponent as ComputerIcon } from "../assets/icons/computer.svg";
 import { ReactComponent as UserIcon } from "../assets/icons/user.svg";
 import { ReactComponent as LogoutIcon } from "../assets/icons/logout.svg";
-import { ReactComponent as StatsIcon } from "../assets/icons/stats.svg";
 import { ReactComponent as QueueIcon } from "../assets/icons/collection.svg";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../config/firebase";
@@ -23,10 +22,6 @@ const Sidebar = () => {
       </Link>
       <Link to="/profile" className="navbar-link " title="Profile">
         <UserIcon className="navbar-icon hover:text-yellow-400" />
-      </Link>
-      {/* TODO: remove stats links */}
-      <Link to="/stats" className="navbar-link " title="Stats">
-        <StatsIcon className="navbar-icon hover:text-green-400" />
       </Link>
       <Link to="/queue" className="navbar-link " title="Task queue">
         <QueueIcon className="navbar-icon hover:text-purple-400" />

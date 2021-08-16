@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
-import { ReactComponent as TrashIcon } from "../../assets/icons/trash.svg";
-import Project from "../../models/Project";
+import { ReactComponent as TrashIcon } from "../assets/icons/trash.svg";
+import Project from "../models/Project";
 
 const Card: FunctionComponent<{
   dispalyFormat?: string;

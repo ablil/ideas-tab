@@ -1,5 +1,5 @@
 import React, { FC, FunctionComponent, useState } from "react";
-import Project from "../../models/Project";
+import Project from "../models/Project";
 import Card from "./Card";
 
 type Props = {

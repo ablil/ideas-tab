@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
 import PageWrapper from "../layouts/PageWrapper";
-import LoadingPage from "../pages/LoadingPage";
-import Errors from "./commons/Errors";
-import UpdatePasswordForm from "./UpdatePasswordForm";
+import LoadingPage from "./LoadingPage";
+import Errors from "../components/commons/Errors";
+import UpdatePasswordForm from "../components/authentication/UpdatePasswordForm";
 
 const ProfilePage = () => {
   const [user, loading] = useAuthState(auth);

@@ -2,19 +2,18 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NotFound from "./components/commons/404";
-import PrivateRoute from "./components/PrivateRoute";
 import Helmet from "react-helmet";
 
 import "./config/firebase";
-import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import PublicRoute from "./routes/PublicRoute";
 import RegistrationPage from "./pages/RegistrationPage";
 import ForgetPassword from "./components/authentication/ForgetPassword";
-import ProfilePage from "./components/ProfilePage";
+import ProfilePage from "./pages/ProfilePage";
 import TaskPage from "./pages/TaskPage";
 import ProjectListPage from "./pages/ProjectListPage";
-import ProjectPage from "./components/Details/ProjectPage";
+import PrivateRoute from "./routes/PrivateRoute";
+import ProjectPage from "./components/ProjectPage";
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
-import Project from "../../models/Project";
-import InputModal from "../commons/InputModal";
-import { ReactComponent as TrashIcon } from "../../assets/icons/trash.svg";
+import Project from "../models/Project";
+import InputModal from "./commons/InputModal";
+import { ReactComponent as TrashIcon } from "../assets/icons/trash.svg";
 
 type Props = {
   project: Project;

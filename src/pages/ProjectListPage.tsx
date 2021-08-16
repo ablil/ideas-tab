@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Errors from "../components/commons/Errors";
-import ProjectList from "../components/projects/ProjectList";
+import ProjectList from "../components/ProjectList";
 import ProjectSearchbar from "../components/ProjectSearchbar";
 import { useFirebase } from "../hooks/useFirebase";
 import PageWrapper from "../layouts/PageWrapper";
