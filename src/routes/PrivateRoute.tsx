@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Redirect, Route, RouteProps } from "react-router-dom";
 import LoadingPage from "../pages/LoadingPage";

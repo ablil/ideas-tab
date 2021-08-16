@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import { auth } from "../../config/firebase";
 
 const ForgetPassword = () => {

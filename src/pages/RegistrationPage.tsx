@@ -21,10 +21,7 @@ const RegistrationPage = () => {
         createExampleProject(creds.user?.uid!);
         history.push("/");
       })
-      .catch((err: Error) => {
-        console.error(err);
-        setErrors([err.message]);
-      });
+      .catch((err: Error) => setErrors([err.message]));
   }
 
   return (

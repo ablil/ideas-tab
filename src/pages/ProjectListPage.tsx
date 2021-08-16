@@ -18,7 +18,6 @@ const ProjectListPage = () => {
   const history = useHistory();
 
   useEffect(() => {
-    console.log("project list page is visited");
     setProjects([...items]);
   }, [items]);
 

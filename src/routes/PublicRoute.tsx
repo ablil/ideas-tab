@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import React, { FC } from "react";
+import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Redirect, Route, RouteProps } from "react-router-dom";
 
@@ -11,7 +11,7 @@ export default function PublicRoute({
   restricted,
   ...routeProps
 }: RestrictedRouteProps) {
-  const [user, loading] = useAuthState(firebase.auth());
+  const [user] = useAuthState(firebase.auth());
 
   if (user && restricted) {
     return <Redirect to="/projects" />;

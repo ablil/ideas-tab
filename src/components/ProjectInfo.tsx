@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import Project from "../models/Project";
 import InputModal from "./commons/InputModal";
 import { ReactComponent as TrashIcon } from "../assets/icons/trash.svg";
@@ -8,7 +8,7 @@ type Props = {
   onSave: (p: Project) => void;
 };
 
-const ProjectInfo: FunctionComponent<Props> = ({ project, onSave }) => {
+const ProjectInfo: FC<Props> = ({ project, onSave }) => {
   const [projectCopy, setProjectCopy] = useState<Project>(project);
   const [isModified, setIsModified] = useState(false);
 
@@ -85,6 +85,7 @@ const ProjectInfo: FunctionComponent<Props> = ({ project, onSave }) => {
         <label className="title">
           repository
           <a
+            className="text-white underline"
             href={projectCopy.repository || "#"}
             target="_blank"
             rel="noreferrer"
@@ -113,7 +114,13 @@ const ProjectInfo: FunctionComponent<Props> = ({ project, onSave }) => {
 
       <article className="input-wrapper">
         <label className="title">
-          Technologies <a onClick={(_) => setTechModal(true)}>add technology</a>
+          Technologies{" "}
+          <button
+            className="text-white underline"
+            onClick={(_) => setTechModal(true)}
+          >
+            add technology
+          </button>
         </label>
         <div className="flex flex-wrap">
           {projectCopy.technologies.map((tech) => (
@@ -133,9 +140,12 @@ const ProjectInfo: FunctionComponent<Props> = ({ project, onSave }) => {
       <article className="input-wrapper">
         <label className="title">
           Related links
-          <a className="cursor-pointer" onClick={(_) => setLinkModal(true)}>
+          <button
+            className="px-1 text-white underline"
+            onClick={(_) => setLinkModal(true)}
+          >
             add link
-          </a>
+          </button>
         </label>
         <ul className="list-none">
           {projectCopy.links.map((link) => (
@@ -173,7 +183,6 @@ const ProjectInfo: FunctionComponent<Props> = ({ project, onSave }) => {
           type="reset"
           onClick={cancelModification}
           className="btn btn-red w-5/6 md:w-1/4 m-2 md:mx-auto"
-          accessKey="c"
         >
           cancel
         </button>

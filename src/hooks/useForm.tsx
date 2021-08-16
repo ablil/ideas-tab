@@ -1,11 +1,5 @@
 import { ChangeEvent, useEffect, useState } from "react";
 
-type FormObject = {
-  name: string;
-  value: string;
-  validator: (value: string) => { [key: string]: string[] };
-};
-
 export default function useForm<T>(
   initialData: T,
   validate: (obj: T) => { [key: string]: string },
@@ -17,7 +11,7 @@ export default function useForm<T>(
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) callback();
-  }, [errors]);
+  }, [callback, errors, isSubmitting]);
 
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setData((old) => ({ ...old, [evt.target.name]: evt.target.value }));

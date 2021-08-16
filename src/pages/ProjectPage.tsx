@@ -18,7 +18,7 @@ const ProjectPage = () => {
 
   useEffect(() => {
     setProject(items.find((p) => p.id === id));
-  }, [loading, id]);
+  }, [loading, id, items]);
 
   function addNote(note: string) {
     if (project && id) {

@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { ReactComponent as DeleteIcon } from "../assets/icons/trash.svg";
-import { ReactComponent as EditIcon } from "../assets/icons/edit.svg";
 import Task from "../models/Task";
 
 type ComponentProps = {

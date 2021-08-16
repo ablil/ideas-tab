@@ -7,7 +7,7 @@ const ThemeSwitch: FC<{ className?: string }> = ({ className }) => {
 
   useEffect(() => {
     if (localStorage.theme !== "dark" && localStorage.theme !== "light") {
-      localStorage.setItem("theme", "dark");
+      localStorage.setItem("theme", "light");
     }
     if (localStorage.theme === "dark") {
       setIsDarkMode(true);

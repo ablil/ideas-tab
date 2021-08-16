@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useRef, useState } from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 
@@ -21,7 +21,7 @@ const LoginForm: FC<LoginFormProps> = ({ login }) => {
   function validate(obj: FormObj) {
     const errors: any = {};
 
-    if (!obj.email || obj.email.length == 0)
+    if (!obj.email || obj.email.length === 0)
       errors["email"] = "email is required";
 
     if (obj.password.length < 8)
