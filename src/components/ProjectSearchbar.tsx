@@ -26,11 +26,11 @@ const ProjectSearchbar: FC<Props> = ({ onFilter, onChangeDisplayFormat }) => {
       />
       <div className="hidden md:flex justify-center items-center">
         <GridIcon
-          onClick={(_) => onChangeDisplayFormat("short")}
+          onClick={(_) => onChangeDisplayFormat("grid")}
           className="w-6 h-6 cursor-pointer fill-current dark:text-white  hover:text-blue-400 dark:hover:text-yellow-400"
         />
         <ListIcon
-          onClick={(_) => onChangeDisplayFormat("long")}
+          onClick={(_) => onChangeDisplayFormat("list")}
           className="w-6 h-6 cursor-pointer fill-current dark:text-white hover:text-blue-400 dark:hover:text-yellow-400"
         />
       </div>

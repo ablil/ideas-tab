@@ -11,7 +11,7 @@ const Card: FunctionComponent<{
   return (
     <section
       className={`w-96 h-32 m-4 mb-8 cursor-pointer ${
-        displayFormat === "long" ? "w-full" : "w-80"
+        displayFormat === "list" ? "w-full" : "w-80"
       }`}
       onClick={(_) => onSelect(project.id)}
     >
@@ -65,7 +65,7 @@ const Card: FunctionComponent<{
         </footer>
       </section>
       {/* card footer */}
-      {displayFormat === "short" && (
+      {displayFormat === "grid" && (
         <div>
           <div className="mx-auto w-11/12 h-2 rounded-b bg-gray-100 dark:bg-gray-500 shadow"></div>
           <div className="mx-auto w-10/12 h-2 rounded-b bg-gray-300 dark:bg-gray-700 shadow"></div>
