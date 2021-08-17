@@ -6,11 +6,11 @@ import { ReactComponent as InteractIcon } from "../../assets/icons/interact.svg"
 const FeaturesList = () => {
   return (
     <section>
-      <section className="flex justify-start items-center py-12">
+      <section className="flex justify-start items-center py-12 flex-col md:flex-row">
         <div className="w-1/2 flex-center">
           <InteractIcon className="ml-auto w-72 max-w-sm h-auto" />
         </div>
-        <div className="w-1/2 ml-4">
+        <div className="w-5/6 md:w-1/2 ml-4">
           <div className="max-w-md">
             <h1 className="text-5xl text-blue-400 py-4">
               Intuitive user experience
@@ -23,8 +23,8 @@ const FeaturesList = () => {
         </div>
       </section>
 
-      <section className="flex justify-start items-center py-12">
-        <div className="w-1/2">
+      <section className="flex justify-start items-center py-12 flex-col md:flex-row">
+        <div className="w-5/6 md:w-1/2">
           <div className="max-w-md text-right ml-auto mr-4">
             <h1 className="text-5xl text-blue-400 py-4">
               note what comes to your mind
@@ -40,11 +40,11 @@ const FeaturesList = () => {
         </div>
       </section>
 
-      <section className="flex justify-start items-center py-12">
+      <section className="flex justify-start items-center py-12 flex-col md:flex-row">
         <div className="w-1/2 flex-center">
           <PaperCraftIcon className="ml-auto w-72 max-w-sm h-auto" />
         </div>
-        <div className="w-1/2 ml-4">
+        <div className="w-5/6 md:w-1/2 ml-4">
           <div className="max-w-md">
             <h1 className="text-5xl text-blue-400 py-4">specify if needed</h1>
             <p className="text-3xl">

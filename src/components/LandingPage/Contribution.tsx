@@ -4,7 +4,7 @@ import { ReactComponent as CoffeeIcon } from "../../assets/icons/hot-cup.svg";
 const Contribution = () => {
   return (
     <section className="bg-gray-900 text-white">
-      <div className="flex-center">
+      <div className="flex-center flex-col lg:flex-row">
         <div className="w-1/2">
           <p className="max-w-md mx-auto py-12 font-bold text-2xl text-center">
             This is an open source project, if you have any issue or you think

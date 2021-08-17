@@ -9,7 +9,7 @@ const LandingPageBanner = () => {
           <h1 className="text-blue-400">tab</h1>
         </header>
 
-        <article className="font-bold my-4 max-w-md mx-auto">
+        <article className="font-bold my-4 max-w-md mx-auto p-4">
           if your are a developer, this is the right place for you to save your
           side projects ideas.
         </article>
