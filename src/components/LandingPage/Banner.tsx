@@ -21,7 +21,6 @@ const LandingPageBanner = () => {
           >
             register now
           </a>
-          {/* TODO: showcase the application, maybe as a video */}
         </article>
       </div>
     </main>

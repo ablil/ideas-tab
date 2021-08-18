@@ -1,18 +1,18 @@
 import React from "react";
 import LandingPageBanner from "../components/LandingPage/Banner";
-import Contribution from "../components/LandingPage/Contribution";
+import Footer from "../components/LandingPage/Footer";
 import FeaturesList from "../components/LandingPage/FeaturesList";
-import LandingPageNavbar from "../components/LandingPage/LandingPageNavbar";
+import Navbar from "../components/LandingPage/Navbar";
 import Showcase from "../components/LandingPage/Showcase";
 
 const LandingPage = () => {
   return (
     <div>
-      <LandingPageNavbar />
+      <Navbar />
       <LandingPageBanner />
       <Showcase />
       <FeaturesList />
-      <Contribution />
+      <Footer />
     </div>
   );
 };

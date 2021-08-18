@@ -3,7 +3,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router-dom";
 
-const LandingPageNavbar = () => {
+const Navbar = () => {
   const [user, loading] = useAuthState(firebase.auth());
   const history = useHistory();
 
@@ -47,4 +47,4 @@ const LandingPageNavbar = () => {
   );
 };
 
-export default LandingPageNavbar;
+export default Navbar;
