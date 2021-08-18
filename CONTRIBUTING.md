@@ -1,65 +1,38 @@
-# Contribution guide
+# Contribution
+Thank you for thinking about contributing to this project, read this guideline for more information.
+* [request feature / support or report a bug / error](#issues)
+* [git commit convention](#git)
+* [pull requests](#pull-requests)
 
-We love your input, we love to make contributing to this project as easy as it could be.
+# Issues
+If you think:
+* This project lacks some features
+* You need support
+* You need to report a bug or and error
 
-Here is a guide for you, if you feel I have forgotten something, please create an issue.
+Please:
+* Open an issue
+* Provide as much context as you can about what you are running into
+* Provide project or platform version (node, os ...), depending on what seems relevant.
 
-## 1. Technology stack
-
-This project uses the following stack:
-* React / Typescipt
-* Tailwindcss
-* Firebase (firestore, authentication, hosting)
-
-### 1.1. React setup
-
-To install necessary tools:
+# Git
+To make life easier for you and for other developers and contributors, please follow the following convention for you commit message.
+Each commit message should be like:
 ```
-$ npm install -g yarn
-$ npm install -g create-react-app
+<type> (scope): <message>
+
+Long description right here
 ```
-
-To run the project locally:
-```
-$ git clone https://github.com/ablil/ideas-tab
-$ cd ideas-tab && yarn
-$ yarn start
-```
-
-In order to run, a firebase `.env` is required, check the next section.
-
-### 1.2. Firebase setup
-
-Start by installing firebase tools:
-```
-yarn global add firebase-tools
-```
-
-Then create an `.env` file with contains your firebase project credentials.
-You can use `.env.example` as a boilerplate.
-
-## 2. UI / Design
-We are using `tailwindcss` as css framework, here is the style that is being followed:
-
-|                  | light mode | dark mode       |
-|------------------|------------|-----------------|
-| text color       | gray-900   | gray-50 / white |
-| background color | gray-50    | gray-900        |
-| primary color    | blue-400   | yellow-400      |
-
-## 3. Development process
-
-### 3.1 Commit guide
-
-This repo uses the conventional commit guide:
-1. `feat` : new features
-2. `fix`: fix bug
-3. `refactor`: a commit that is neither a *feat* or a *bug*
-4. `build`: related to project build
-5. `ci`: related to continuous integration such as github action
-6. `docs`: documentation
-
-### 3.2 Pull requests
-
-1. Fork the repo and create your branch from `dev`
-2. Describe your pull request, so other people can understand your code.
+**scope** is optional
+| type     | description                                                           |
+|----------|-----------------------------------------------------------------------|
+| feat     | adding a new features                                                 |
+| fix      | fixing a bug                                                          |
+| refactor | a commit that is neither a *fix* or *feat*                            |
+| build    | a commit related to the build process (eg: package.json, pom.xml ...) |
+| ci       | a commit related to CI/CD (eg: github action, travis ...)             |
+| docs     | a commit related to documentation                                     |
+ 
+ # Pull requests
+ So you wanna contribute some code, that's great ! This project uses Github pull request for contributions, so read up [how to fork a repository and create a PL](https://guides.github.com/activities/forking/) if you've never done it before.
+ 
