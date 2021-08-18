@@ -18,7 +18,8 @@ const ThirdPartyAuthProviders: FunctionComponent<{
   };
   return (
     <footer className="py-4">
-      <small className="text-blue-400 text-center">
+      {/* // FIXME: center this */}
+      <small className="text-blue-400 text-center block mx-auto">
         Or authenticate with :
       </small>
       <article className="flex justify-center items-center text-gray-50 py-4">
